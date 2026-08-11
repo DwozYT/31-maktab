@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="page-title">Davlat Maktabi | Zamonaviy Ta'lim Makoni</title>
-  <meta name="description" content="Zamonaviy ta'lim, malakali o'qituvchilar va yuqori natijalar maktabi." />
+  <title id="page-title">13-Maktab | Rasmiy Ta'lim Portali</title>
+  <meta name="description" content="13-Maktab — Zamonaviy ta'lim, malakali o'qituvchilar va yuqori natijalar maskani." />
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,27 +49,36 @@
             <span id="nav-logo-icon" class="text-2xl font-black">🏫</span>
           </div>
           <div>
-            <span id="nav-school-name" class="text-xl font-extrabold text-white tracking-tight group-hover:text-blue-400 transition-colors">MAKTAB</span>
-            <span class="block text-xs font-semibold text-blue-400 tracking-wider uppercase">Rasmiy Portal</span>
+            <span id="nav-school-name" class="text-xl font-extrabold text-white tracking-tight group-hover:text-blue-400 transition-colors">13-MAKTAB</span>
+            <span id="lbl-official-portal" class="block text-xs font-semibold text-blue-400 tracking-wider uppercase">Rasmiy Portal</span>
           </div>
         </a>
 
         <!-- Desktop Navigation -->
         <nav class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-300">
-          <a href="#about" class="hover:text-blue-400 transition-colors">Maktab Haqida</a>
-          <a href="#teachers" class="hover:text-blue-400 transition-colors">Rahbariyat & O'qituvchilar</a>
-          <a href="#news" class="hover:text-blue-400 transition-colors">Yangiliklar</a>
-          <a href="#gallery" class="hover:text-blue-400 transition-colors">Galereya</a>
-          <a href="#achievements" class="hover:text-blue-400 transition-colors">Yutuqlar</a>
-          <a href="#contact" class="hover:text-blue-400 transition-colors">Bog'lanish</a>
+          <a href="#about" id="nav-lbl-about" class="hover:text-blue-400 transition-colors">Maktab Haqida</a>
+          <a href="#teachers" id="nav-lbl-teachers" class="hover:text-blue-400 transition-colors">Rahbariyat & O'qituvchilar</a>
+          <a href="#news" id="nav-lbl-news" class="hover:text-blue-400 transition-colors">Yangiliklar</a>
+          <a href="#gallery" id="nav-lbl-gallery" class="hover:text-blue-400 transition-colors">Galereya</a>
+          <a href="#achievements" id="nav-lbl-achievements" class="hover:text-blue-400 transition-colors">Yutuqlar</a>
+          <a href="#contact" id="nav-lbl-contact" class="hover:text-blue-400 transition-colors">Bog'lanish</a>
         </nav>
 
-        <!-- Right Side: Admin Login / Dashboard Button -->
+        <!-- Right Side: Language Switcher (UZ / EN / RU) & Admin Login Button -->
         <div class="flex items-center space-x-4">
+          
+          <!-- 3-Language Selector Pills -->
+          <div class="flex items-center space-x-1 bg-slate-950/80 p-1 rounded-xl border border-slate-800">
+            <button onclick="setLanguage('uz')" id="lang-btn-uz" class="lang-btn active">UZ</button>
+            <button onclick="setLanguage('en')" id="lang-btn-en" class="lang-btn">EN</button>
+            <button onclick="setLanguage('ru')" id="lang-btn-ru" class="lang-btn">RU</button>
+          </div>
+
+          <!-- Auth Button -->
           <div id="auth-nav-container">
             <button onclick="openLoginModal()" class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm neon-glow-blue transition-all transform hover:scale-105">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
-              <span>ADMIN LOGIN</span>
+              <span id="btn-admin-login-text">ADMIN LOGIN</span>
             </button>
           </div>
 
@@ -84,20 +93,19 @@
 
     <!-- Mobile Dropdown Menu -->
     <div id="mobile-menu" class="hidden lg:hidden bg-slate-950/95 border-b border-blue-500/20 px-6 py-6 space-y-4">
-      <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-300 font-semibold hover:text-blue-400">Maktab Haqida</a>
-      <a href="#teachers" onclick="toggleMobileMenu()" class="block text-slate-300 font-semibold hover:text-blue-400">Rahbariyat & O'qituvchilar</a>
-      <a href="#news" onclick="toggleMobileMenu()" class="block text-slate-300 font-semibold hover:text-blue-400">Yangiliklar</a>
-      <a href="#gallery" onclick="toggleMobileMenu()" class="block text-slate-300 font-semibold hover:text-blue-400">Galereya</a>
-      <a href="#achievements" onclick="toggleMobileMenu()" class="block text-slate-300 font-semibold hover:text-blue-400">Yutuqlar</a>
-      <a href="#contact" onclick="toggleMobileMenu()" class="block text-slate-300 font-semibold hover:text-blue-400">Bog'lanish</a>
+      <a href="#about" onclick="toggleMobileMenu()" id="mob-lbl-about" class="block text-slate-300 font-semibold hover:text-blue-400">Maktab Haqida</a>
+      <a href="#teachers" onclick="toggleMobileMenu()" id="mob-lbl-teachers" class="block text-slate-300 font-semibold hover:text-blue-400">Rahbariyat & O'qituvchilar</a>
+      <a href="#news" onclick="toggleMobileMenu()" id="mob-lbl-news" class="block text-slate-300 font-semibold hover:text-blue-400">Yangiliklar</a>
+      <a href="#gallery" onclick="toggleMobileMenu()" id="mob-lbl-gallery" class="block text-slate-300 font-semibold hover:text-blue-400">Galereya</a>
+      <a href="#achievements" onclick="toggleMobileMenu()" id="mob-lbl-achievements" class="block text-slate-300 font-semibold hover:text-blue-400">Yutuqlar</a>
+      <a href="#contact" onclick="toggleMobileMenu()" id="mob-lbl-contact" class="block text-slate-300 font-semibold hover:text-blue-400">Bog'lanish</a>
     </div>
   </header>
 
   <main class="pt-24">
 
-    <!-- HERO SECTION (Matching User Reference Image Design) -->
+    <!-- HERO SECTION -->
     <section id="hero" class="relative min-h-[90vh] flex items-center justify-center py-20 overflow-hidden">
-      <!-- Glow Accents Background -->
       <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -117,18 +125,18 @@
             </h1>
 
             <p id="hero-description" class="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
-              O'quvchilarimizga zamonaviy bilimlar, raqamli texnologiyalar va yuqori darajadagi ta'lim berish — bizning eng ustuvor maqsadimizdir.
+              13-Maktab o'quvchilariga zamonaviy bilimlar, raqamli texnologiyalar va yuqori darajadagi ta'lim berish — bizning eng ustuvor maqsadimizdir.
             </p>
 
             <!-- Hero Action Buttons -->
             <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
               <a href="#about" class="inline-flex items-center space-x-3 bg-blue-600 hover:bg-blue-500 text-white font-extrabold px-8 py-4 rounded-xl text-sm shadow-xl neon-glow-blue transition-all transform hover:scale-105">
-                <span>BATAFSIL MA'LUMOT</span>
+                <span id="btn-hero-more">BATAFSIL MA'LUMOT</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               </a>
 
               <a href="#contact" class="inline-flex items-center space-x-2 bg-slate-900/80 hover:bg-slate-800 border border-blue-500/30 text-blue-300 font-bold px-7 py-4 rounded-xl text-sm transition-all transform hover:scale-105">
-                <span>BOG'LANISH</span>
+                <span id="btn-hero-contact">BOG'LANISH</span>
               </a>
             </div>
 
@@ -136,37 +144,36 @@
             <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-semibold text-slate-300">
               <div class="flex items-center space-x-2">
                 <span class="text-blue-400">✓</span>
-                <span>Zamonaviy Sinflar</span>
+                <span id="feat-1">Zamonaviy Sinflar</span>
               </div>
               <div class="flex items-center space-x-2">
                 <span class="text-blue-400">✓</span>
-                <span>Yuqori Natijalar</span>
+                <span id="feat-2">Yuqori Natijalar</span>
               </div>
               <div class="flex items-center space-x-2">
                 <span class="text-blue-400">✓</span>
-                <span>Olimpiada G'oliblari</span>
+                <span id="feat-3">Olimpiada G'oliblari</span>
               </div>
               <div class="flex items-center space-x-2">
                 <span class="text-blue-400">✓</span>
-                <span>Tajribali O'qituvchilar</span>
+                <span id="feat-4">Tajribali O'qituvchilar</span>
               </div>
             </div>
 
           </div>
 
-          <!-- Hero Right Mockup / Card Frame (Inspired by reference image mockup) -->
+          <!-- Hero Right Mockup / Card Frame -->
           <div class="lg:col-span-5 relative">
             <div class="hero-frame p-6 sm:p-8 space-y-6">
               
-              <!-- Frame Header -->
               <div class="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div class="flex items-center space-x-3">
                   <div class="w-10 h-10 rounded-xl bg-blue-600/30 border border-blue-500/50 flex items-center justify-center text-blue-400 font-bold text-lg">
                     📊
                   </div>
                   <div>
-                    <h3 class="text-base font-bold text-white">Maktab Ko'rsatkichlari</h3>
-                    <p class="text-xs text-slate-400">Jonli Boshqaruv Paneli</p>
+                    <h3 id="hero-frame-title" class="text-base font-bold text-white">Maktab Ko'rsatkichlari</h3>
+                    <p id="hero-frame-subtitle" class="text-xs text-slate-400">Jonli Boshqaruv Paneli</p>
                   </div>
                 </div>
                 <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-500/20 text-blue-300 border border-blue-500/40">FAOL</span>
@@ -176,31 +183,31 @@
               <div class="grid grid-cols-2 gap-4">
                 <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 hover:border-blue-500/40 transition-colors">
                   <span class="block text-2xl font-black text-blue-400" id="stat-students">1200+</span>
-                  <span class="text-xs font-semibold text-slate-400">O'quvchilar Soni</span>
+                  <span id="lbl-stat-students" class="text-xs font-semibold text-slate-400">O'quvchilar Soni</span>
                 </div>
                 <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 hover:border-blue-500/40 transition-colors">
                   <span class="block text-2xl font-black text-cyan-400" id="stat-teachers">85+</span>
-                  <span class="text-xs font-semibold text-slate-400">O'qituvchilar</span>
+                  <span id="lbl-stat-teachers" class="text-xs font-semibold text-slate-400">O'qituvchilar</span>
                 </div>
                 <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 hover:border-blue-500/40 transition-colors">
                   <span class="block text-2xl font-black text-blue-400" id="stat-classes">40+</span>
-                  <span class="text-xs font-semibold text-slate-400">Sinflar Soni</span>
+                  <span id="lbl-stat-classes" class="text-xs font-semibold text-slate-400">Sinflar Soni</span>
                 </div>
                 <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 hover:border-blue-500/40 transition-colors">
                   <span class="block text-2xl font-black text-cyan-400" id="stat-awards">150+</span>
-                  <span class="text-xs font-semibold text-slate-400">Yutuqlar</span>
+                  <span id="lbl-stat-awards" class="text-xs font-semibold text-slate-400">Yutuqlar</span>
                 </div>
               </div>
 
-              <!-- Testimonial Preview Quote Box -->
+              <!-- Quote Preview Box -->
               <div class="bg-blue-950/30 border border-blue-500/20 rounded-xl p-4 text-xs space-y-2">
                 <div class="flex items-center space-x-1 text-yellow-400">
                   <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                 </div>
                 <p id="hero-quote-text" class="text-slate-300 italic">
-                  "Bizning maktab o'quvchilar va o'qituvchilar uchun eng qulay va ilg'or muhitni taqdim etadi."
+                  "Bizning maktab o'quvchilar va o'qituvchilar uchun eng qulay va ilg'or ta'lim ortamini taqdim etadi."
                 </p>
-                <span id="hero-quote-author" class="block font-bold text-blue-300 text-right">— Maktab Rahbariyati</span>
+                <span id="hero-quote-author" class="block font-bold text-blue-300 text-right">— 13-Maktab Rahbariyati</span>
               </div>
 
             </div>
@@ -210,13 +217,13 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION (Maktab Haqida) -->
+    <!-- ABOUT SECTION -->
     <section id="about" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
       <div class="text-center space-y-3 mb-16">
-        <div class="badge-neon">📘 AKADEMIK TARIX VA MAQSAD</div>
-        <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">MAKTAB HAQIDA</h2>
+        <div id="sec-badge-about" class="badge-neon">📘 AKADEMIK TARIX VA MAQSAD</div>
+        <h2 id="sec-title-about" class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">MAKTAB HAQIDA</h2>
         <p id="about-subheading" class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
-          Maktabimiz tarixi, erishgan yutuqlari va o'quv jarayonidagi ilg'or uslublari bilan tanishing.
+          13-Maktab tarixi, erishgan yutuqlari va o'quv jarayonidagi ilg'or uslublari bilan tanishing.
         </p>
       </div>
 
@@ -225,12 +232,12 @@
       </div>
     </section>
 
-    <!-- LEADERSHIP & TEACHERS SECTION (Rahbariyat & O'qituvchilar) -->
+    <!-- LEADERSHIP & TEACHERS SECTION -->
     <section id="teachers" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
       <div class="text-center space-y-3 mb-16">
-        <div class="badge-neon">👨‍🏫 MALAKALI JAMOAMIZ</div>
-        <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">RAHBARIYAT & O'QITUVCHILAR</h2>
-        <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+        <div id="sec-badge-teachers" class="badge-neon">👨‍🏫 MALAKALI JAMOAMIZ</div>
+        <h2 id="sec-title-teachers" class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">RAHBARIYAT & O'QITUVCHILAR</h2>
+        <p id="sec-desc-teachers" class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
           O'quvchilarimizga bilim va tarbiya berib kelayotgan tajribali ustozlarimiz.
         </p>
       </div>
@@ -240,13 +247,13 @@
       </div>
     </section>
 
-    <!-- NEWS & ANNOUNCEMENTS SECTION (Yangiliklar) -->
+    <!-- NEWS SECTION -->
     <section id="news" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
       <div class="text-center space-y-3 mb-16">
-        <div class="badge-neon">📰 JONLI VOQEALAR</div>
-        <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">YANGILIKLAR & E'LONLAR</h2>
-        <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
-          Maktab hayotidagi eng so'nggi yangiliklar, tadbirlar va e'lonlardan xabardor bo'ling.
+        <div id="sec-badge-news" class="badge-neon">📰 JONLI VOQEALAR</div>
+        <h2 id="sec-title-news" class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">YANGILIKLAR & E'LONLAR</h2>
+        <p id="sec-desc-news" class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+          13-Maktab hayotidagi eng so'nggi yangiliklar, tadbirlar va e'lonlardan xabardor bo'ling.
         </p>
       </div>
 
@@ -255,12 +262,12 @@
       </div>
     </section>
 
-    <!-- GALLERY SECTION (Galereya) -->
+    <!-- GALLERY SECTION -->
     <section id="gallery" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
       <div class="text-center space-y-3 mb-16">
-        <div class="badge-neon">📸 RASMLAR VA VIDEOLAR</div>
-        <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">FOTO & VIDEO GALEREYA</h2>
-        <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+        <div id="sec-badge-gallery" class="badge-neon">📸 RASMLAR VA VIDEOLAR</div>
+        <h2 id="sec-title-gallery" class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">FOTO & VIDEO GALEREYA</h2>
+        <p id="sec-desc-gallery" class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
           Maktabimiz tadbirlari va hayotidan qiziqarli fotolavhalar.
         </p>
       </div>
@@ -270,12 +277,12 @@
       </div>
     </section>
 
-    <!-- ACHIEVEMENTS SECTION (Yutuqlarimiz) -->
+    <!-- ACHIEVEMENTS SECTION -->
     <section id="achievements" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
       <div class="text-center space-y-3 mb-16">
-        <div class="badge-neon">🏆 G'OLIBLARIMIZ</div>
-        <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">MAKTAB YUTUQLARI</h2>
-        <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+        <div id="sec-badge-achievements" class="badge-neon">🏆 G'OLIBLARIMIZ</div>
+        <h2 id="sec-title-achievements" class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">MAKTAB YUTUQLARI</h2>
+        <p id="sec-desc-achievements" class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
           Olimpiadalar, sport va fan tanlovlaridagi muvaffaqiyatlarimiz.
         </p>
       </div>
@@ -285,52 +292,51 @@
       </div>
     </section>
 
-    <!-- CONTACT & MAP SECTION (Bog'lanish va Manzil) -->
+    <!-- CONTACT SECTION -->
     <section id="contact" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
       <div class="text-center space-y-3 mb-16">
-        <div class="badge-neon">📍 ALOQA VA MANZIL</div>
-        <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">BOG'LANISH</h2>
-        <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+        <div id="sec-badge-contact" class="badge-neon">📍 ALOQA VA MANZIL</div>
+        <h2 id="sec-title-contact" class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">BOG'LANISH</h2>
+        <p id="sec-desc-contact" class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
           Savollaringiz bormi? Biz bilan bog'laning yoki maktabimizga tashrif buyuring.
         </p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
-        <!-- Contact Information & Form -->
         <div class="lg:col-span-5 space-y-8">
           <div class="glass-card p-6 sm:p-8 space-y-6">
-            <h3 class="text-xl font-bold text-white">Bog'lanish Ma'lumotlari</h3>
+            <h3 id="lbl-contact-info-title" class="text-xl font-bold text-white">Bog'lanish Ma'lumotlari</h3>
             
             <div class="space-y-4 text-sm text-slate-300">
               <div class="flex items-start space-x-3">
                 <span class="text-blue-400 text-lg">📍</span>
                 <div>
-                  <strong class="block text-white">Manzil:</strong>
-                  <span id="contact-address-text">Manzil kiritilmagan</span>
+                  <strong id="lbl-address-tag" class="block text-white">Manzil:</strong>
+                  <span id="contact-address-text">13-Maktab manzili</span>
                 </div>
               </div>
 
               <div class="flex items-start space-x-3">
                 <span class="text-blue-400 text-lg">📞</span>
                 <div>
-                  <strong class="block text-white">Telefon:</strong>
-                  <span id="contact-phone-text">+998 (90) 000-00-00</span>
+                  <strong id="lbl-phone-tag" class="block text-white">Telefon:</strong>
+                  <span id="contact-phone-text">+998 (71) 000-00-00</span>
                 </div>
               </div>
 
               <div class="flex items-start space-x-3">
                 <span class="text-blue-400 text-lg">✉️</span>
                 <div>
-                  <strong class="block text-white">E-pochta:</strong>
-                  <span id="contact-email-text">info@maktab.uz</span>
+                  <strong id="lbl-email-tag" class="block text-white">E-pochta:</strong>
+                  <span id="contact-email-text">info@13-maktab.uz</span>
                 </div>
               </div>
 
               <div class="flex items-start space-x-3">
                 <span class="text-blue-400 text-lg">⏰</span>
                 <div>
-                  <strong class="block text-white">Ish Vaqti:</strong>
+                  <strong id="lbl-hours-tag" class="block text-white">Ish Vaqti:</strong>
                   <span id="contact-hours-text">Dushanba - Shanba: 08:00 - 18:00</span>
                 </div>
               </div>
@@ -339,21 +345,21 @@
 
           <!-- Public Feedback Form -->
           <div class="glass-card p-6 sm:p-8 space-y-4">
-            <h3 class="text-lg font-bold text-white">Xabar Yuborish</h3>
+            <h3 id="lbl-send-msg-title" class="text-lg font-bold text-white">Xabar Yuborish</h3>
             <form onsubmit="submitInquiryForm(event)" class="space-y-4">
               <div>
-                <label class="block text-xs font-semibold text-slate-400 mb-1">Ismingiz</label>
+                <label id="lbl-name-input" class="block text-xs font-semibold text-slate-400 mb-1">Ismingiz</label>
                 <input type="text" id="inquiry-name" required placeholder="Ismingizni kiriting" class="input-dark" />
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-400 mb-1">Telefon raqamingiz</label>
+                <label id="lbl-phone-input" class="block text-xs font-semibold text-slate-400 mb-1">Telefon raqamingiz</label>
                 <input type="text" id="inquiry-phone" required placeholder="+998 (90) 123-45-67" class="input-dark" />
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-400 mb-1">Xabaringiz</label>
+                <label id="lbl-msg-input" class="block text-xs font-semibold text-slate-400 mb-1">Xabaringiz</label>
                 <textarea id="inquiry-message" required rows="3" placeholder="Savol yoki taklifingiz..." class="input-dark"></textarea>
               </div>
-              <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl text-sm neon-glow-blue transition-all">
+              <button type="submit" id="btn-submit-inquiry" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl text-sm neon-glow-blue transition-all">
                 XABARNI YUBORISH
               </button>
             </form>
@@ -363,7 +369,7 @@
         <!-- Map Iframe Box -->
         <div class="lg:col-span-7">
           <div class="glass-card p-4 overflow-hidden rounded-2xl h-[480px]">
-            <iframe id="contact-map-iframe" src="https://yandex.ru/map-widget/v1/?ll=69.2401%2C41.2995&z=13" class="w-full h-full rounded-xl border-0" allowfullscreen="true"></iframe>
+            <iframe id="contact-map-iframe" src="https://yandex.ru/map-widget/v1/?ll=69.2890%2C41.3520&z=15" class="w-full h-full rounded-xl border-0" allowfullscreen="true"></iframe>
           </div>
         </div>
 
@@ -377,90 +383,100 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
       <div class="flex items-center justify-center space-x-3">
         <span class="text-2xl">🏫</span>
-        <span id="footer-school-name" class="font-extrabold text-white text-lg">MAKTAB</span>
+        <span id="footer-school-name" class="font-extrabold text-white text-lg">13-MAKTAB</span>
       </div>
-      <p>© 2026 Barcha huquqlar saqlangan. Zamonaviy Maktab Rasmiy Portali.</p>
+      <p id="lbl-footer-rights">© 2026 Barcha huquqlar saqlangan. 13-Maktab Rasmiy Portali.</p>
     </div>
   </footer>
 
-  <!-- ==================== ADMIN LOGIN MODAL ==================== -->
+  <!-- ==================== ENHANCED ADMIN LOGIN MODAL ==================== -->
   <div id="login-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-overlay p-4">
     <div class="bg-slate-900 border border-blue-500/40 rounded-2xl p-6 sm:p-8 max-w-md w-full animate-modal shadow-2xl neon-glow-blue relative">
       
       <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">✕</button>
 
       <div class="text-center space-y-2 mb-6">
-        <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/50 text-blue-400 flex items-center justify-center mx-auto text-2xl">
+        <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/50 text-blue-400 flex items-center justify-center mx-auto text-2xl neon-glow-blue">
           🔐
         </div>
-        <h3 class="text-2xl font-black text-white">ADMIN TIZIMIGA KIRISH</h3>
-        <p class="text-xs text-slate-400">Boshqaruv paneliga kirish uchun ma'lumotlarni kiriting</p>
+        <h3 id="modal-title-login" class="text-2xl font-black text-white">ADMIN TIZIMIGA KIRISH</h3>
+        <p id="modal-desc-login" class="text-xs text-slate-400">Boshqaruv paneliga kirish uchun ma'lumotlarni kiriting</p>
       </div>
 
       <form onsubmit="handleLoginSubmit(event)" class="space-y-4">
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Login (Username)</label>
-          <input type="text" id="login-username" required placeholder="Masalan: DwozYT" class="input-dark" />
+          <label id="lbl-login-username" class="block text-xs font-semibold text-slate-300 mb-1">Login (Username)</label>
+          <input type="text" id="login-username" required placeholder="DwozYT" class="input-dark" />
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Parol (Password)</label>
-          <input type="password" id="login-password" required placeholder="••••••••" class="input-dark" />
+          <label id="lbl-login-password" class="block text-xs font-semibold text-slate-300 mb-1">Parol (Password)</label>
+          <div class="relative">
+            <input type="password" id="login-password" required placeholder="••••••••" class="input-dark pr-10" />
+            <button type="button" onclick="togglePasswordVisibility('login-password')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs font-bold">
+              👁️
+            </button>
+          </div>
         </div>
 
         <div id="login-error" class="hidden bg-red-500/20 border border-red-500/40 text-red-300 text-xs p-3 rounded-lg text-center font-semibold">
           Login yoki parol noto'g'ri!
         </div>
 
-        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl text-sm neon-glow-blue transition-all">
+        <button type="submit" id="btn-submit-login" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl text-sm neon-glow-blue transition-all">
           TIZIMGA KIRISH
         </button>
       </form>
     </div>
   </div>
 
-  <!-- ==================== ADMIN MANAGEMENT PANEL MODAL ==================== -->
-  <div id="admin-panel-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-overlay p-4 overflow-y-auto">
-    <div class="bg-slate-900 border border-blue-500/50 rounded-2xl w-full max-w-6xl max-h-[92vh] flex flex-col animate-modal shadow-2xl neon-glow-blue my-auto">
+  <!-- ==================== 1920x1080 ULTRA-SPACIOUS ADMIN DASHBOARD ==================== -->
+  <div id="admin-panel-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-overlay p-2 sm:p-4 overflow-y-auto">
+    <div class="bg-slate-900 border border-blue-500/50 admin-modal-1920 flex flex-col animate-modal relative overflow-hidden">
       
-      <!-- Panel Header -->
-      <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/80 rounded-t-2xl">
-        <div class="flex items-center space-x-3">
-          <span class="text-2xl">⚙️</span>
+      <!-- Panel Top Navigation Header -->
+      <div class="px-8 py-5 border-b border-slate-800 flex items-center justify-between bg-slate-950/90">
+        <div class="flex items-center space-x-4">
+          <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/50 flex items-center justify-center text-blue-400 font-bold text-2xl neon-glow-blue">
+            ⚙️
+          </div>
           <div>
-            <h3 class="text-lg font-black text-white">MAKTAB ADMIN BOSHGARUV PANELI</h3>
-            <p class="text-xs text-blue-400">Tizimda faol: <span id="current-admin-name" class="font-bold">DwozYT</span></p>
+            <h3 class="text-xl font-black text-white tracking-tight">13-MAKTAB | ADMIN BOSHGARUV PANELI</h3>
+            <div class="flex items-center space-x-2 text-xs">
+              <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+              <span class="text-slate-400">Tizimda faol admin: <strong id="current-admin-name" class="text-blue-400 font-bold">DwozYT</strong></span>
+            </div>
           </div>
         </div>
 
-        <div class="flex items-center space-x-3">
-          <button onclick="handleAdminLogout()" class="bg-red-600/20 border border-red-500/40 hover:bg-red-600 text-red-300 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition-all">
+        <div class="flex items-center space-x-4">
+          <button onclick="handleAdminLogout()" class="bg-red-600/20 border border-red-500/40 hover:bg-red-600 text-red-300 hover:text-white px-5 py-2.5 rounded-xl text-xs font-bold transition-all">
             CHIQISH (LOGOUT)
           </button>
-          <button onclick="closeAdminPanelModal()" class="text-slate-400 hover:text-white text-xl p-1">✕</button>
+          <button onclick="closeAdminPanelModal()" class="text-slate-400 hover:text-white text-2xl p-1">✕</button>
         </div>
       </div>
 
-      <!-- Admin Navigation Tabs -->
-      <div class="px-6 pt-3 bg-slate-950/40 border-b border-slate-800 flex items-center space-x-2 overflow-x-auto text-xs font-bold">
-        <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="px-4 py-3 border-b-2 border-blue-500 text-blue-400 whitespace-nowrap">⚙️ Asosiy Sozlamalar</button>
-        <button onclick="switchAdminTab('teachers')" id="tab-btn-teachers" class="px-4 py-3 border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">👨‍🏫 O'qituvchilar</button>
-        <button onclick="switchAdminTab('news')" id="tab-btn-news" class="px-4 py-3 border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">📰 Yangiliklar</button>
-        <button onclick="switchAdminTab('gallery')" id="tab-btn-gallery" class="px-4 py-3 border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">📸 Galereya</button>
-        <button onclick="switchAdminTab('achievements')" id="tab-btn-achievements" class="px-4 py-3 border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">🏆 Yutuqlar</button>
-        <button onclick="switchAdminTab('inquiries')" id="tab-btn-inquiries" class="px-4 py-3 border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">📩 Xabarlar (<span id="inquiry-count-badge">0</span>)</button>
-        <button onclick="switchAdminTab('admins')" id="tab-btn-admins" class="px-4 py-3 border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">👤 Adminlar Boshqaruvi</button>
+      <!-- Admin Tabs Sidebar/Header Navigation -->
+      <div class="px-8 pt-4 bg-slate-950/60 border-b border-slate-800 flex items-center space-x-3 overflow-x-auto text-xs sm:text-sm font-bold">
+        <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="px-5 py-3.5 border-b-2 border-blue-500 text-blue-400 whitespace-nowrap">⚙️ Asosiy Sozlamalar</button>
+        <button onclick="switchAdminTab('teachers')" id="tab-btn-teachers" class="px-5 py-3.5 border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">👨‍🏫 O'qituvchilar</button>
+        <button onclick="switchAdminTab('news')" id="tab-btn-news" class="px-5 py-3.5 border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">📰 Yangiliklar</button>
+        <button onclick="switchAdminTab('gallery')" id="tab-btn-gallery" class="px-5 py-3.5 border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">📸 Galereya</button>
+        <button onclick="switchAdminTab('achievements')" id="tab-btn-achievements" class="px-5 py-3.5 border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">🏆 Yutuqlar</button>
+        <button onclick="switchAdminTab('inquiries')" id="tab-btn-inquiries" class="px-5 py-3.5 border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">📩 Xabarlar (<span id="inquiry-count-badge">0</span>)</button>
+        <button onclick="switchAdminTab('admins')" id="tab-btn-admins" class="px-5 py-3.5 border-b-2 border-transparent text-slate-400 hover:text-white whitespace-nowrap">👤 Adminlar Boshqaruvi</button>
       </div>
 
-      <!-- Tab Content Area -->
-      <div class="p-6 overflow-y-auto flex-1 space-y-6">
+      <!-- Tab Body Container -->
+      <div class="p-8 overflow-y-auto flex-1 space-y-8">
         
         <!-- TAB 1: SITE SETTINGS -->
         <div id="admin-tab-settings" class="space-y-6">
-          <h4 class="text-base font-bold text-white border-b border-slate-800 pb-2">Maktab Nomi Va Asosiy Matnlar</h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <h4 class="text-lg font-bold text-white border-b border-slate-800 pb-3">Maktab Nomi Va Asosiy Matnlar</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Maktab Nomi (Nomeri)</label>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Maktab Nomi</label>
               <input type="text" id="admin-input-school-name" class="input-dark" />
             </div>
             <div>
@@ -481,8 +497,8 @@
             </div>
           </div>
 
-          <h4 class="text-base font-bold text-white border-b border-slate-800 pb-2 pt-4">Statistika Ko'rsatkichlari</h4>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <h4 class="text-lg font-bold text-white border-b border-slate-800 pb-3 pt-4">Statistika Ko'rsatkichlari</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">O'quvchilar Soni</label>
               <input type="text" id="admin-input-stat-students" class="input-dark" />
@@ -501,8 +517,8 @@
             </div>
           </div>
 
-          <h4 class="text-base font-bold text-white border-b border-slate-800 pb-2 pt-4">Aloqa Ma'lumotlari</h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <h4 class="text-lg font-bold text-white border-b border-slate-800 pb-3 pt-4">Aloqa Ma'lumotlari</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1">Manzil</label>
               <input type="text" id="admin-input-address" class="input-dark" />
@@ -525,84 +541,84 @@
             </div>
           </div>
 
-          <button onclick="saveSiteSettings()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-xl text-sm neon-glow-blue">
+          <button onclick="saveSiteSettings()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-3.5 rounded-xl text-sm neon-glow-blue">
             SOZLAMALARNI SAQLASH
           </button>
         </div>
 
         <!-- TAB 2: TEACHERS & LEADERSHIP -->
         <div id="admin-tab-teachers" class="hidden space-y-6">
-          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-            <h4 class="text-base font-bold text-white">Rahbariyat Va O'qituvchilar Ro'yxati</h4>
-            <button onclick="openAddTeacherModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <h4 class="text-lg font-bold text-white">Rahbariyat Va O'qituvchilar Ro'yxati</h4>
+            <button onclick="openAddTeacherModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm neon-glow-blue">
               + Yangi O'qituvchi Qo'shish
             </button>
           </div>
-          <div id="admin-teachers-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div id="admin-teachers-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <!-- Dynamic list -->
           </div>
         </div>
 
         <!-- TAB 3: NEWS -->
         <div id="admin-tab-news" class="hidden space-y-6">
-          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-            <h4 class="text-base font-bold text-white">Yangiliklar & E'lonlar Ro'yxati</h4>
-            <button onclick="openAddNewsModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <h4 class="text-lg font-bold text-white">Yangiliklar & E'lonlar Ro'yxati</h4>
+            <button onclick="openAddNewsModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm neon-glow-blue">
               + Yangi Yangilik Qo'shish
             </button>
           </div>
-          <div id="admin-news-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div id="admin-news-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <!-- Dynamic list -->
           </div>
         </div>
 
         <!-- TAB 4: GALLERY -->
         <div id="admin-tab-gallery" class="hidden space-y-6">
-          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-            <h4 class="text-base font-bold text-white">Foto Va Video Galereya</h4>
-            <button onclick="openAddGalleryModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <h4 class="text-lg font-bold text-white">Foto Va Video Galereya</h4>
+            <button onclick="openAddGalleryModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm neon-glow-blue">
               + Yangi Foto/Video Qo'shish
             </button>
           </div>
-          <div id="admin-gallery-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <div id="admin-gallery-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
             <!-- Dynamic list -->
           </div>
         </div>
 
         <!-- TAB 5: ACHIEVEMENTS -->
         <div id="admin-tab-achievements" class="hidden space-y-6">
-          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-            <h4 class="text-base font-bold text-white">Maktab Yutuqlari</h4>
-            <button onclick="openAddAchievementModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <h4 class="text-lg font-bold text-white">Maktab Yutuqlari</h4>
+            <button onclick="openAddAchievementModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm neon-glow-blue">
               + Yangi Yutuq Qo'shish
             </button>
           </div>
-          <div id="admin-achievements-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div id="admin-achievements-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <!-- Dynamic list -->
           </div>
         </div>
 
         <!-- TAB 6: INQUIRIES / MESSAGES -->
-        <div id="admin-tab-inquiries" class="hidden space-y-4">
-          <h4 class="text-base font-bold text-white border-b border-slate-800 pb-2">Sayt Foydalanuvchilaridan Kelgan Xabarlar</h4>
-          <div id="admin-inquiries-list" class="space-y-3">
+        <div id="admin-tab-inquiries" class="hidden space-y-6">
+          <h4 class="text-lg font-bold text-white border-b border-slate-800 pb-3">Sayt Foydalanuvchilaridan Kelgan Xabarlar</h4>
+          <div id="admin-inquiries-list" class="space-y-4">
             <!-- Dynamic list -->
           </div>
         </div>
 
-        <!-- TAB 7: ADMIN USER MANAGEMENT (Add new admins) -->
+        <!-- TAB 7: ADMIN USER MANAGEMENT -->
         <div id="admin-tab-admins" class="hidden space-y-6">
-          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
             <div>
-              <h4 class="text-base font-bold text-white">Admin Foydalanuvchilar Boshqaruvi</h4>
-              <p class="text-xs text-slate-400">Yangi adminlar qo'shishingiz va mavjudlarini ko'rishingiz mumkin</p>
+              <h4 class="text-lg font-bold text-white">Admin Foydalanuvchilar Boshqaruvi</h4>
+              <p class="text-xs text-slate-400">Yangi adminlar qo'shishingiz va mavjud admin akkauntlarini boshqarishingiz mumkin</p>
             </div>
-            <button onclick="openAddAdminUserModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs">
+            <button onclick="openAddAdminUserModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm neon-glow-blue">
               + Yangi Admin Qo'shish
             </button>
           </div>
 
-          <div id="admin-users-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div id="admin-users-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <!-- Dynamic list of admins -->
           </div>
         </div>
@@ -611,15 +627,17 @@
     </div>
   </div>
 
-  <!-- GENERIC ADD/EDIT MODAL -->
-  <div id="crud-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-overlay p-4">
-    <div class="bg-slate-900 border border-blue-500/40 rounded-2xl p-6 max-w-lg w-full animate-modal shadow-2xl relative space-y-4">
+  <!-- GENERIC FULL EDIT & ADD MODAL WITH IMAGE UPLOADER -->
+  <div id="crud-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-overlay p-4 overflow-y-auto">
+    <div class="bg-slate-900 border border-blue-500/40 rounded-2xl p-6 sm:p-8 max-w-xl w-full animate-modal shadow-2xl relative space-y-5 my-auto">
       <button onclick="closeCrudModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">✕</button>
-      <h3 id="crud-modal-title" class="text-xl font-bold text-white">Yangi Ma'lumot Qo'shish</h3>
+      <h3 id="crud-modal-title" class="text-xl font-black text-white">Ma'lumot Kiritish / Tahrirlash</h3>
+      
       <div id="crud-modal-body" class="space-y-4">
         <!-- Injected via JS -->
       </div>
-      <button id="crud-modal-submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl text-sm neon-glow-blue">
+      
+      <button id="crud-modal-submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl text-sm neon-glow-blue">
         SAQLASH
       </button>
     </div>

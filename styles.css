@@ -112,18 +112,54 @@ body {
 
 /* Modal Overlay & Animation */
 .modal-overlay {
-  background: rgba(3, 5, 11, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(3, 5, 11, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.96); }
+  from { opacity: 0; transform: scale(0.97); }
   to { opacity: 1; transform: scale(1); }
 }
 
 .animate-modal {
   animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 1920x1080 Ultra-Spacious Admin Modal Viewport */
+.admin-modal-1920 {
+  max-width: 1920px;
+  width: 98vw;
+  height: 94vh;
+  margin: auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 80px rgba(37, 99, 235, 0.4), 0 25px 50px -12px rgba(0, 0, 0, 0.9);
+}
+
+/* Drag & Drop Aesthetic Image Uploader Box */
+.image-dropzone {
+  border: 2px dashed rgba(59, 130, 246, 0.4);
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.image-dropzone:hover, .image-dropzone.dragover {
+  border-color: #3b82f6;
+  background: rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.image-preview-thumb {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  margin-top: 0.75rem;
 }
 
 /* Hero Screen Glow Mockup Frame */
@@ -152,4 +188,23 @@ body {
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
   background: rgba(15, 23, 42, 0.95);
+}
+
+/* Language Switcher Buttons */
+.lang-btn {
+  padding: 0.3rem 0.65rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  color: #94a3b8;
+  background: rgba(15, 23, 42, 0.6);
+}
+
+.lang-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
 }

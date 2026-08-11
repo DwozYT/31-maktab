@@ -1,7 +1,7 @@
 {
-  "name": "mirzaqodirov-junior",
+  "name": "31-maktab",
   "version": "1.0.0",
-  "description": "Mirzaqodirov Junior Futbol Akademiyasi",
+  "description": "31-Maktab Rasmiy Veb Sayti",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
