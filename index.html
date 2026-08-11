@@ -68,11 +68,29 @@
         <!-- Right Side: Language Switcher (UZ / EN / RU) & Admin Login Button -->
         <div class="flex items-center space-x-4">
           
-          <!-- 3-Language Selector Pills -->
-          <div class="flex items-center space-x-1 bg-slate-950/80 p-1 rounded-xl border border-slate-800">
-            <button onclick="setLanguage('uz')" id="lang-btn-uz" class="lang-btn active">UZ</button>
-            <button onclick="setLanguage('en')" id="lang-btn-en" class="lang-btn">EN</button>
-            <button onclick="setLanguage('ru')" id="lang-btn-ru" class="lang-btn">RU</button>
+          <!-- Globe Language Switcher Dropdown Sticker -->
+          <div class="relative">
+            <button onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center space-x-2 bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-blue-500/40 text-slate-200 font-bold px-3.5 py-2.5 rounded-xl text-xs transition-all shadow-md">
+              <span class="text-base">🌐</span>
+              <span id="current-lang-code" class="font-extrabold uppercase text-blue-400">UZ</span>
+              <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+
+            <!-- Language Dropdown Popover Menu -->
+            <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-48 bg-slate-900/95 border border-blue-500/40 rounded-xl shadow-2xl backdrop-blur-xl p-2 z-50 animate-modal">
+              <button onclick="selectLangFromDropdown('uz')" id="dropdown-item-uz" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-bold hover:bg-blue-600/20 hover:text-blue-400 flex items-center justify-between transition-colors">
+                <span class="flex items-center space-x-2"><span>🇺🇿</span> <span>O'zbekcha</span></span>
+                <span class="text-[10px] text-blue-400 font-extrabold">UZ</span>
+              </button>
+              <button onclick="selectLangFromDropdown('en')" id="dropdown-item-en" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-bold hover:bg-blue-600/20 hover:text-blue-400 flex items-center justify-between transition-colors">
+                <span class="flex items-center space-x-2"><span>🇬🇧</span> <span>English</span></span>
+                <span class="text-[10px] text-blue-400 font-extrabold">EN</span>
+              </button>
+              <button onclick="selectLangFromDropdown('ru')" id="dropdown-item-ru" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-bold hover:bg-blue-600/20 hover:text-blue-400 flex items-center justify-between transition-colors">
+                <span class="flex items-center space-x-2"><span>🇷🇺</span> <span>Русский</span></span>
+                <span class="text-[10px] text-blue-400 font-extrabold">RU</span>
+              </button>
+            </div>
           </div>
 
           <!-- Auth Button -->

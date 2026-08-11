@@ -259,11 +259,35 @@ document.addEventListener("DOMContentLoaded", () => {
   checkAuthSession();
 });
 
+// Globe Language Switcher Popover Handlers
+function toggleLangDropdown(e) {
+  if (e) e.stopPropagation();
+  const menu = document.getElementById("lang-dropdown-menu");
+  if (menu) menu.classList.toggle("hidden");
+}
+
+function selectLangFromDropdown(lang) {
+  setLanguage(lang);
+  const menu = document.getElementById("lang-dropdown-menu");
+  if (menu) menu.classList.add("hidden");
+}
+
+// Close dropdown on click outside
+window.addEventListener("click", (e) => {
+  const btn = document.getElementById("lang-dropdown-btn");
+  const menu = document.getElementById("lang-dropdown-menu");
+  if (menu && !menu.classList.contains("hidden")) {
+    if (btn && !btn.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add("hidden");
+    }
+  }
+});
+
 // Language Switcher Engine
 function setLanguage(lang) {
   currentLang = lang;
-  document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("active"));
-  document.getElementById(`lang-btn-${lang}`).classList.add("active");
+  const codeEl = document.getElementById("current-lang-code");
+  if (codeEl) codeEl.innerText = lang.toUpperCase();
   applyLanguage(lang);
 }
 
