@@ -183,11 +183,11 @@ let appState = {
     statTeachers: "90+",
     statClasses: "42+",
     statAwards: "160+",
-    address: "Toshkent shahri, Yunusobod tumani, 31-maktab",
+    address: "GPS: 41.310956, 69.634573 (31-Maktab rasmiy joylashuvi)",
     phone: "+998 (71) 234-31-31",
     email: "info@31-maktab.uz",
     hours: "Dushanba - Shanba: 08:00 - 18:00",
-    mapUrl: "https://yandex.ru/map-widget/v1/?ll=69.2890%2C41.3520&z=15"
+    mapUrl: "https://yandex.ru/map-widget/v1/org/31_maktab/113406840535/?ll=69.634573%2C41.310956&z=17.2"
   },
   teachers: [
     {
