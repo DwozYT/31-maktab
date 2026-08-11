@@ -540,6 +540,8 @@ function openLoginModal() {
     openAdminPanelModal();
     return;
   }
+  document.getElementById("login-username").value = "";
+  document.getElementById("login-password").value = "";
   document.getElementById("login-modal").classList.remove("hidden");
   document.getElementById("login-error").classList.add("hidden");
 }
@@ -947,10 +949,10 @@ function renderAdminGalleryTab() {
       <p class="text-xs text-white truncate font-semibold pt-1">${g.title}</p>
       <div class="grid grid-cols-2 gap-1 pt-1 border-t border-slate-900">
         <button onclick="openEditGalleryModal('${g.id}')" class="bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white px-2 py-1 rounded text-[10px] font-bold text-center">
-          ✏️ TAHRIR
+          ✏️ TAHRIRLASH
         </button>
         <button onclick="deleteGalleryItem('${g.id}')" class="bg-red-600/30 hover:bg-red-600 text-red-300 hover:text-white px-2 py-1 rounded text-[10px] font-bold text-center">
-          🗑️ O'CHIR
+          🗑️ O'CHIRISH
         </button>
       </div>
     </div>
