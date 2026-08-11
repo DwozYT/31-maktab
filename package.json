@@ -1,0 +1,13 @@
+{
+  "name": "mirzaqodirov-junior",
+  "version": "1.0.0",
+  "description": "Mirzaqodirov Junior Futbol Akademiyasi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "npm install"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
