@@ -1,4 +1,4 @@
-// 13-MAKTAB MAIN SCRIPT WITH 3-LANGUAGE DICTIONARY & IMAGE UPLOADER
+// 31-MAKTAB MAIN SCRIPT WITH 3-LANGUAGE DICTIONARY & IMAGE UPLOADER
 
 let currentLang = "uz";
 
@@ -16,7 +16,7 @@ const translations = {
     heroBadge: "Raqamli & Zamonaviy Ta'lim Maskani",
     heroTitle1: "Bilim Va Kelajak",
     heroTitle2: "Birlashtirilgan Maskanda",
-    heroDesc: "13-Maktab o'quvchilariga zamonaviy bilimlar, raqamli texnologiyalar va yuqori darajadagi ta'lim berish — bizning eng ustuvor maqsadimizdir.",
+    heroDesc: "31-Maktab o'quvchilariga zamonaviy bilimlar, raqamli texnologiyalar va yuqori darajadagi ta'lim berish — bizning eng ustuvor maqsadimizdir.",
     btnMore: "BATAFSIL MA'LUMOT",
     btnContact: "BOG'LANISH",
     feat1: "Zamonaviy Sinflar",
@@ -52,7 +52,7 @@ const translations = {
     lblPhoneInput: "Telefon raqamingiz",
     lblMsgInput: "Xabaringiz",
     btnSubmitInquiry: "XABARNI YUBORISH",
-    lblFooterRights: "© 2026 Barcha huquqlar saqlangan. 13-Maktab Rasmiy Portali.",
+    lblFooterRights: "© 2026 Barcha huquqlar saqlangan. 31-Maktab Rasmiy Portali.",
     modalTitleLogin: "ADMIN TIZIMIGA KIRISH",
     modalDescLogin: "Boshqaruv paneliga kirish uchun ma'lumotlarni kiriting",
     lblLoginUsername: "Login (Username)",
@@ -71,7 +71,7 @@ const translations = {
     heroBadge: "Digital & Modern Education Center",
     heroTitle1: "Knowledge & Future",
     heroTitle2: "United in One Space",
-    heroDesc: "School No. 13 is dedicated to providing students with modern knowledge, digital technology, and high-quality education.",
+    heroDesc: "School No. 31 is dedicated to providing students with modern knowledge, digital technology, and high-quality education.",
     btnMore: "READ MORE",
     btnContact: "CONTACT US",
     feat1: "Modern Classrooms",
@@ -107,7 +107,7 @@ const translations = {
     lblPhoneInput: "Your Phone Number",
     lblMsgInput: "Your Message",
     btnSubmitInquiry: "SEND MESSAGE",
-    lblFooterRights: "© 2026 All rights reserved. School No. 13 Official Portal.",
+    lblFooterRights: "© 2026 All rights reserved. School No. 31 Official Portal.",
     modalTitleLogin: "ADMINISTRATOR LOGIN",
     modalDescLogin: "Enter credentials to access control panel",
     lblLoginUsername: "Username",
@@ -126,7 +126,7 @@ const translations = {
     heroBadge: "Цифровой и Современный Центр Обучения",
     heroTitle1: "Знания и Будущее",
     heroTitle2: "В Объединенном Пространстве",
-    heroDesc: "Школа №13 стремится предоставить учащимся современные знания, цифровые технологии и высокое качество образования.",
+    heroDesc: "Школа №31 стремится предоставить учащимся современные знания, цифровые технологии и высокое качество образования.",
     btnMore: "ПОДРОБНЕЕ",
     btnContact: "СВЯЗАТЬСЯ",
     feat1: "Современные Классы",
@@ -162,7 +162,7 @@ const translations = {
     lblPhoneInput: "Ваш Номер Телефона",
     lblMsgInput: "Ваше Сообщение",
     btnSubmitInquiry: "ОТПРАВИТЬ СООБЩЕНИЕ",
-    lblFooterRights: "© 2026 Все права защищены. Официальный Портал Школы №13.",
+    lblFooterRights: "© 2026 Все права защищены. Официальный Портал Школы №31.",
     modalTitleLogin: "ВХОД В ПАНЕЛЬ АДМИНИСТРАТОРА",
     modalDescLogin: "Введите учетные данные для входа в систему",
     lblLoginUsername: "Логин",
@@ -171,21 +171,21 @@ const translations = {
   }
 };
 
-// Initial App State for 13-Maktab
+// Initial App State for 31-Maktab
 let appState = {
   settings: {
-    schoolName: "13-Maktab",
+    schoolName: "31-Maktab",
     heroBadge: "Raqamli & Zamonaviy Ta'lim Maskani",
     heroTitle1: "Bilim Va Kelajak",
     heroTitle2: "Birlashtirilgan Maskanda",
-    heroDesc: "13-Maktab o'quvchilariga zamonaviy bilimlar, raqamli texnologiyalar va yuqori darajadagi ta'lim berish — bizning eng ustuvor maqsadimizdir.",
+    heroDesc: "31-Maktab o'quvchilariga zamonaviy bilimlar, raqamli texnologiyalar va yuqori darajadagi ta'lim berish — bizning eng ustuvor maqsadimizdir.",
     statStudents: "1250+",
     statTeachers: "90+",
     statClasses: "42+",
     statAwards: "160+",
-    address: "Toshkent shahri, Yunusobod tumani, 13-maktab",
-    phone: "+998 (71) 234-13-13",
-    email: "info@13-maktab.uz",
+    address: "Toshkent shahri, Yunusobod tumani, 31-maktab",
+    phone: "+998 (71) 234-31-31",
+    email: "info@31-maktab.uz",
     hours: "Dushanba - Shanba: 08:00 - 18:00",
     mapUrl: "https://yandex.ru/map-widget/v1/?ll=69.2890%2C41.3520&z=15"
   },
@@ -210,7 +210,7 @@ let appState = {
   news: [
     {
       id: "n1",
-      title: "13-Maktabda Yangi IT va Robototexnika Laboratoriyasi Ochildi",
+      title: "31-Maktabda Yangi IT va Robototexnika Laboratoriyasi Ochildi",
       date: "2026-08-11",
       category: "Tadbir",
       content: "O'quvchilarimiz zamonaviy kompyuter va robototexnika vositalaridan foydalangan holda amaliy mashg'ulotlar o'tkazishmoqda.",
@@ -378,7 +378,7 @@ function applyLanguage(lang) {
 
 // Data Load & Persistence
 async function loadData() {
-  const local = localStorage.getItem("maktab_app_db_13");
+  const local = localStorage.getItem("maktab_app_db_31");
   if (local) {
     try {
       appState = Object.assign({}, appState, JSON.parse(local));
@@ -413,15 +413,15 @@ async function saveData() {
 }
 
 function saveDataLocally() {
-  localStorage.setItem("maktab_app_db_13", JSON.stringify(appState));
+  localStorage.setItem("maktab_app_db_31", JSON.stringify(appState));
 }
 
 // Render Public Sections
 function renderAllSections() {
   const s = appState.settings || {};
-  document.title = `${s.schoolName || "13-Maktab"} | Rasmiy Portal`;
-  document.getElementById("nav-school-name").innerText = s.schoolName || "13-MAKTAB";
-  document.getElementById("footer-school-name").innerText = s.schoolName || "13-MAKTAB";
+  document.title = `${s.schoolName || "31-Maktab"} | Rasmiy Portal`;
+  document.getElementById("nav-school-name").innerText = s.schoolName || "31-MAKTAB";
+  document.getElementById("footer-school-name").innerText = s.schoolName || "31-MAKTAB";
 
   document.getElementById("hero-badge-text").innerText = s.heroBadge || "";
   document.getElementById("hero-title-main").innerText = s.heroTitle1 || "";
@@ -582,7 +582,7 @@ function handleLoginSubmit(e) {
   const found = appState.admins.find(a => a.username === u && a.password === p);
   if (found) {
     currentLoggedInAdmin = found;
-    sessionStorage.setItem("logged_admin_13", u);
+    sessionStorage.setItem("logged_admin_31", u);
     closeLoginModal();
     updateAuthNavUI();
     openAdminPanelModal();
@@ -592,7 +592,7 @@ function handleLoginSubmit(e) {
 }
 
 function checkAuthSession() {
-  const logged = sessionStorage.getItem("logged_admin_13");
+  const logged = sessionStorage.getItem("logged_admin_31");
   if (logged) {
     const found = appState.admins.find(a => a.username === logged);
     if (found) {
@@ -622,7 +622,7 @@ function updateAuthNavUI() {
 
 function handleAdminLogout() {
   currentLoggedInAdmin = null;
-  sessionStorage.removeItem("logged_admin_13");
+  sessionStorage.removeItem("logged_admin_31");
   closeAdminPanelModal();
   updateAuthNavUI();
 }
