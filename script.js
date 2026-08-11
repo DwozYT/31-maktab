@@ -183,7 +183,7 @@ let appState = {
     statTeachers: "90+",
     statClasses: "42+",
     statAwards: "160+",
-    address: "GPS: 41.310956, 69.634573 (31-Maktab rasmiy joylashuvi)",
+    address: "Toshkent viloyati, Parkent tumani, 31-Maktab",
     phone: "+998 (71) 234-31-31",
     email: "info@31-maktab.uz",
     hours: "Dushanba - Shanba: 08:00 - 18:00",
