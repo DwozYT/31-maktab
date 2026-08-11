@@ -641,6 +641,12 @@
         SAQLASH
       </button>
     </div>
+  <!-- IMAGE LIGHTBOX FULL VIEW MODAL -->
+  <div id="image-lightbox-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-overlay p-4" onclick="closeImageLightbox()">
+    <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center justify-center animate-modal" onclick="event.stopPropagation()">
+      <button onclick="closeImageLightbox()" class="absolute -top-10 right-0 text-white hover:text-blue-400 text-3xl font-black">✕</button>
+      <img id="lightbox-img" src="" class="max-w-full max-h-[85vh] object-contain rounded-2xl border border-blue-500/50 shadow-2xl neon-glow-blue" />
+    </div>
   </div>
 
   <!-- Scripts -->

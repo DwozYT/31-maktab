@@ -732,8 +732,11 @@ function renderAdminTeachersTab() {
   container.innerHTML = appState.teachers.map(t => `
     <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
       <div class="space-y-2">
-        <img src="${t.photo}" class="w-full h-36 object-cover rounded-lg border border-slate-800" />
-        <h5 class="font-bold text-white text-sm">${t.name}</h5>
+        <div class="h-64 w-full overflow-hidden rounded-xl border border-slate-800 relative bg-slate-900 group cursor-pointer" onclick="openImageLightbox('${t.photo}')" title="To'liq rasm ko'rish uchun bosing">
+          <img src="${t.photo}" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300" />
+          <span class="absolute top-2 right-2 bg-slate-950/80 backdrop-blur-md text-[10px] text-blue-300 font-bold px-2 py-0.5 rounded-md border border-slate-800">🔍 To'liq rasm</span>
+        </div>
+        <h5 class="font-bold text-white text-sm pt-1">${t.name}</h5>
         <p class="text-xs text-blue-400 font-semibold">${t.role} (${t.subject})</p>
       </div>
       <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-900">
@@ -829,8 +832,11 @@ function renderAdminNewsTab() {
   container.innerHTML = appState.news.map(n => `
     <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
       <div class="space-y-2">
-        <img src="${n.image}" class="w-full h-32 object-cover rounded-lg border border-slate-800" />
-        <span class="text-[10px] text-blue-400 font-bold uppercase">${n.date} | ${n.category}</span>
+        <div class="h-48 w-full overflow-hidden rounded-xl border border-slate-800 relative bg-slate-900 group cursor-pointer" onclick="openImageLightbox('${n.image}')" title="To'liq rasm ko'rish uchun bosing">
+          <img src="${n.image}" class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300" />
+          <span class="absolute top-2 right-2 bg-slate-950/80 backdrop-blur-md text-[10px] text-blue-300 font-bold px-2 py-0.5 rounded-md border border-slate-800">🔍 To'liq rasm</span>
+        </div>
+        <span class="text-[10px] text-blue-400 font-bold uppercase block pt-1">${n.date} | ${n.category}</span>
         <h5 class="font-bold text-white text-sm line-clamp-2">${n.title}</h5>
       </div>
       <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-900">
@@ -934,8 +940,11 @@ function renderAdminGalleryTab() {
   }
   container.innerHTML = appState.gallery.map(g => `
     <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-2 flex flex-col justify-between">
-      <img src="${g.url}" class="w-full h-28 object-cover rounded-lg" />
-      <p class="text-xs text-white truncate font-semibold">${g.title}</p>
+      <div class="h-44 w-full overflow-hidden rounded-xl border border-slate-800 relative bg-slate-900 group cursor-pointer" onclick="openImageLightbox('${g.url}')" title="To'liq rasm ko'rish uchun bosing">
+        <img src="${g.url}" class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300" />
+        <span class="absolute top-2 right-2 bg-slate-950/80 backdrop-blur-md text-[10px] text-blue-300 font-bold px-2 py-0.5 rounded-md border border-slate-800">🔍 To'liq rasm</span>
+      </div>
+      <p class="text-xs text-white truncate font-semibold pt-1">${g.title}</p>
       <div class="grid grid-cols-2 gap-1 pt-1 border-t border-slate-900">
         <button onclick="openEditGalleryModal('${g.id}')" class="bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white px-2 py-1 rounded text-[10px] font-bold text-center">
           ✏️ TAHRIR
@@ -1255,4 +1264,15 @@ function closeCrudModal() {
 
 function toggleMobileMenu() {
   document.getElementById("mobile-menu").classList.toggle("hidden");
+}
+
+// Lightbox Full Image Viewer
+function openImageLightbox(src) {
+  if (!src) return;
+  document.getElementById("lightbox-img").src = src;
+  document.getElementById("image-lightbox-modal").classList.remove("hidden");
+}
+
+function closeImageLightbox() {
+  document.getElementById("image-lightbox-modal").classList.add("hidden");
 }
