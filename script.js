@@ -276,15 +276,12 @@ function toggleThemeMode() {
 
 function applyThemeMode(mode) {
   const iconEl = document.getElementById("theme-btn-icon");
-  const textEl = document.getElementById("theme-btn-text");
   if (mode === "light") {
     document.body.classList.add("light-mode");
     if (iconEl) iconEl.innerText = "☀️";
-    if (textEl) textEl.innerText = "YORUG'";
   } else {
     document.body.classList.remove("light-mode");
     if (iconEl) iconEl.innerText = "🌙";
-    if (textEl) textEl.innerText = "QORONG'U";
   }
 }
 
