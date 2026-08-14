@@ -341,9 +341,21 @@ body.light-mode .bg-slate-950\/80,
 body.light-mode .bg-slate-950\/70,
 body.light-mode .bg-slate-950\/60,
 body.light-mode .bg-slate-900\/60,
-body.light-mode .bg-slate-900\/95 {
-  background-color: rgba(255, 255, 255, 0.95) !important;
+body.light-mode .bg-slate-900\/95,
+body.light-mode .bg-blue-950\/30 {
+  background-color: #ffffff !important;
   color: #0f172a !important;
+  border: 1.5px solid #93c5fd !important;
+}
+
+body.light-mode #hero-quote-text {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+body.light-mode #hero-quote-author {
+  color: #2563eb !important;
+  font-weight: 800 !important;
 }
 
 body.light-mode .border-slate-800,
