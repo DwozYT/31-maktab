@@ -383,13 +383,13 @@ body.light-mode footer #footer-school-name {
 }
 
 body.light-mode .admin-modal-1920 {
-  background: rgba(244, 248, 255, 0.97) !important;
-  border: 2px solid rgba(147, 197, 253, 0.8) !important;
+  background: #ffffff !important;
+  border: 2px solid #93c5fd !important;
   box-shadow: 0 25px 80px rgba(37, 99, 235, 0.25) !important;
 }
 
 body.light-mode .admin-modal-1920::before {
-  background-image: linear-gradient(135deg, rgba(238, 245, 255, 0.82) 0%, rgba(220, 235, 255, 0.78) 100%), url('/images/school_bg.png') !important;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(241, 245, 249, 0.90) 100%), url('/images/school_bg.png') !important;
   filter: blur(10px) brightness(1.05) saturate(1.1) !important;
 }
 
@@ -399,9 +399,23 @@ body.light-mode .admin-modal-1920::before {
   border-bottom: 1px solid #1e293b !important;
 }
 
+body.light-mode .admin-modal-1920 > div:first-child {
+  background-color: #f8fafc !important;
+  border-bottom: 2px solid #e2e8f0 !important;
+}
+
 .admin-modal-1920 > div:first-child h3 {
   color: #ffffff !important;
   font-weight: 900 !important;
+}
+
+body.light-mode .admin-modal-1920 > div:first-child h3 {
+  color: #0f172a !important;
+  font-weight: 900 !important;
+}
+
+body.light-mode .admin-modal-1920 > div:first-child span.text-slate-400 {
+  color: #64748b !important;
 }
 
 .admin-modal-1920 > div:first-child button[onclick="handleAdminLogout()"] {
@@ -416,8 +430,16 @@ body.light-mode .admin-modal-1920::before {
   color: #cbd5e1 !important;
 }
 
+body.light-mode .admin-modal-1920 > div:first-child button[onclick="closeAdminPanelModal()"] {
+  color: #64748b !important;
+}
+
 .admin-modal-1920 > div:first-child button[onclick="closeAdminPanelModal()"]:hover {
   color: #ffffff !important;
+}
+
+body.light-mode .admin-modal-1920 > div:first-child button[onclick="closeAdminPanelModal()"]:hover {
+  color: #0f172a !important;
 }
 
 /* Executive Tabs Bar inside Admin Modal */
@@ -426,14 +448,29 @@ body.light-mode .admin-modal-1920::before {
   border-bottom: 1px solid #334155 !important;
 }
 
+body.light-mode .admin-modal-1920 > div:nth-child(2) {
+  background-color: #f1f5f9 !important;
+  border-bottom: 2px solid #cbd5e1 !important;
+}
+
 .admin-modal-1920 > div:nth-child(2) button {
   color: #cbd5e1 !important;
   font-weight: 700 !important;
   transition: all 0.2s ease !important;
 }
 
+body.light-mode .admin-modal-1920 > div:nth-child(2) button {
+  color: #475569 !important;
+  font-weight: 700 !important;
+}
+
 .admin-modal-1920 > div:nth-child(2) button:hover {
   color: #ffffff !important;
+}
+
+body.light-mode .admin-modal-1920 > div:nth-child(2) button:hover {
+  color: #2563eb !important;
+  background-color: #e0f2fe !important;
 }
 
 .admin-modal-1920 > div:nth-child(2) button.border-blue-500 {
@@ -443,6 +480,13 @@ body.light-mode .admin-modal-1920::before {
   font-weight: 900 !important;
   border-radius: 0.5rem 0.5rem 0 0 !important;
   box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4) !important;
+}
+
+body.light-mode .admin-modal-1920 > div:nth-child(2) button.border-blue-500 {
+  color: #ffffff !important;
+  background-color: #2563eb !important;
+  border-bottom: 3px solid #1d4ed8 !important;
+  font-weight: 900 !important;
 }
 
 /* Masterpiece Input Labels & Form Body inside Admin Modal */
