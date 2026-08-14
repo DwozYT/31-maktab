@@ -300,15 +300,12 @@ function toggleDeviceMode() {
 
 function applyDeviceMode(mode) {
   const iconEl = document.getElementById("device-btn-icon");
-  const textEl = document.getElementById("device-btn-text");
   if (mode === "mobile") {
     document.body.classList.add("device-mobile-mode");
     if (iconEl) iconEl.innerText = "📱";
-    if (textEl) textEl.innerText = "Telefon";
   } else {
     document.body.classList.remove("device-mobile-mode");
     if (iconEl) iconEl.innerText = "💻";
-    if (textEl) textEl.innerText = "Kompyuter";
   }
 }
 
