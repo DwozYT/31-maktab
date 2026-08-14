@@ -242,7 +242,7 @@ body::before {
   box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
 }
 
-/* Enhanced Light Mode Theme Overrides */
+/* Dynamic High-Contrast Light Mode Theme Rules */
 body.light-mode {
   background-color: #eef6ff;
   color: #0f172a;
@@ -253,23 +253,28 @@ body.light-mode::before {
   filter: blur(8px) brightness(1.02) saturate(1.15);
 }
 
+/* Light Mode Header & Nav Links */
 body.light-mode .glass-nav {
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid rgba(147, 197, 253, 0.5);
-  box-shadow: 0 4px 25px rgba(37, 99, 235, 0.08);
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-bottom: 1px solid rgba(147, 197, 253, 0.5) !important;
+  box-shadow: 0 4px 25px rgba(37, 99, 235, 0.08) !important;
 }
 
-body.light-mode .glass-card,
-body.light-mode .hero-frame {
-  background: rgba(255, 255, 255, 0.92) !important;
-  border: 1px solid rgba(147, 197, 253, 0.7) !important;
-  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.08) !important;
+body.light-mode nav a {
+  color: #1e293b !important;
+  font-weight: 700 !important;
 }
 
-body.light-mode .glass-card:hover {
-  background: #ffffff !important;
-  border-color: #3b82f6 !important;
-  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.16) !important;
+body.light-mode nav a:hover {
+  color: #2563eb !important;
+}
+
+/* Light Mode High-Contrast Gradients & Texts */
+body.light-mode .text-gradient-blue,
+body.light-mode .text-gradient-cyan {
+  background: linear-gradient(135deg, #0f172a 0%, #1e40af 55%, #2563eb 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 body.light-mode .text-white {
@@ -279,6 +284,20 @@ body.light-mode .text-white {
 body.light-mode .text-slate-300, 
 body.light-mode .text-slate-400 {
   color: #334155 !important;
+}
+
+/* Light Mode Cards, Hero Frame & Boxes */
+body.light-mode .glass-card,
+body.light-mode .hero-frame {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid rgba(147, 197, 253, 0.7) !important;
+  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.08) !important;
+}
+
+body.light-mode .glass-card:hover {
+  background: #ffffff !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.16) !important;
 }
 
 body.light-mode .bg-slate-950, 
@@ -304,7 +323,8 @@ body.light-mode input[type="password"],
 body.light-mode textarea {
   background-color: #ffffff !important;
   color: #0f172a !important;
-  border: 1px solid #93c5fd !important;
+  border: 1.5px solid #93c5fd !important;
+  font-weight: 600 !important;
 }
 
 body.light-mode .input-dark::placeholder,
@@ -323,23 +343,39 @@ body.light-mode footer #footer-school-name {
   color: #0f172a !important;
 }
 
-/* High Contrast Admin Panel Controls */
+/* Dedicated High Contrast Admin Panel Controls */
+.admin-modal-1920 .bg-slate-950\/90 {
+  background-color: #0f172a !important;
+}
+
+.admin-modal-1920 .bg-slate-950\/60 {
+  background-color: #1e293b !important;
+}
+
 .admin-modal-1920 label {
-  color: #93c5fd !important;
+  color: #60a5fa !important;
+  font-weight: 800 !important;
+}
+
+body.light-mode .admin-modal-1920 label {
+  color: #1e40af !important;
   font-weight: 800 !important;
 }
 
 .admin-modal-1920 input,
 .admin-modal-1920 textarea,
 .admin-modal-1920 select {
-  background-color: rgba(15, 23, 42, 0.9) !important;
+  background-color: rgba(15, 23, 42, 0.95) !important;
   color: #ffffff !important;
   border: 1px solid rgba(59, 130, 246, 0.5) !important;
   font-weight: 600 !important;
 }
 
-.admin-modal-1920 input:focus,
-.admin-modal-1920 textarea:focus {
-  border-color: #3b82f6 !important;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3) !important;
+body.light-mode .admin-modal-1920 input,
+body.light-mode .admin-modal-1920 textarea,
+body.light-mode .admin-modal-1920 select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1.5px solid #93c5fd !important;
+  font-weight: 700 !important;
 }
