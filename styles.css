@@ -242,6 +242,40 @@ body::before {
   box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
 }
 
+/* Masterpiece Device Mode Styles: Smartphone Frame Simulator */
+body.device-mobile-mode {
+  max-width: 420px !important;
+  margin: 25px auto !important;
+  border-radius: 2.5rem !important;
+  border: 10px solid #1e293b !important;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 0 60px rgba(37, 99, 235, 0.4) !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+}
+
+body.device-mobile-mode header {
+  max-width: 400px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  border-radius: 0 0 1.25rem 1.25rem !important;
+}
+
+body.device-mobile-mode .grid {
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+}
+
+body.device-mobile-mode nav.hidden.lg\:flex {
+  display: none !important;
+}
+
+body.device-mobile-mode button.lg\:hidden {
+  display: flex !important;
+}
+
+body.device-mobile-mode h1 { font-size: 1.75rem !important; line-height: 2.2rem !important; }
+body.device-mobile-mode h2 { font-size: 1.4rem !important; }
+body.device-mobile-mode h3 { font-size: 1.15rem !important; }
+
 /* Dynamic High-Contrast Light Mode Theme Rules */
 body.light-mode {
   background-color: #eef6ff;
@@ -343,23 +377,100 @@ body.light-mode footer #footer-school-name {
   color: #0f172a !important;
 }
 
-/* Dedicated High Contrast Admin Panel Controls */
-.admin-modal-1920 .bg-slate-950\/90 {
-  background-color: #0f172a !important;
+/* Masterpiece Admin Panel Light & Dark Theme Styling */
+.admin-modal-1920 {
+  background: rgba(8, 13, 28, 0.96) !important;
 }
 
-.admin-modal-1920 .bg-slate-950\/60 {
+body.light-mode .admin-modal-1920 {
+  background: rgba(244, 248, 255, 0.97) !important;
+  border: 2px solid rgba(147, 197, 253, 0.8) !important;
+  box-shadow: 0 25px 80px rgba(37, 99, 235, 0.25) !important;
+}
+
+body.light-mode .admin-modal-1920::before {
+  background-image: linear-gradient(135deg, rgba(238, 245, 255, 0.82) 0%, rgba(220, 235, 255, 0.78) 100%), url('/images/school_bg.png') !important;
+  filter: blur(10px) brightness(1.05) saturate(1.1) !important;
+}
+
+/* Executive Header Top Bar inside Admin Modal */
+.admin-modal-1920 > div:first-child {
+  background-color: #0f172a !important;
+  border-bottom: 1px solid #1e293b !important;
+}
+
+.admin-modal-1920 > div:first-child h3 {
+  color: #ffffff !important;
+  font-weight: 900 !important;
+}
+
+.admin-modal-1920 > div:first-child button[onclick="handleAdminLogout()"] {
+  background-color: #dc2626 !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4) !important;
+}
+
+.admin-modal-1920 > div:first-child button[onclick="closeAdminPanelModal()"] {
+  color: #cbd5e1 !important;
+}
+
+.admin-modal-1920 > div:first-child button[onclick="closeAdminPanelModal()"]:hover {
+  color: #ffffff !important;
+}
+
+/* Executive Tabs Bar inside Admin Modal */
+.admin-modal-1920 > div:nth-child(2) {
   background-color: #1e293b !important;
+  border-bottom: 1px solid #334155 !important;
+}
+
+.admin-modal-1920 > div:nth-child(2) button {
+  color: #cbd5e1 !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease !important;
+}
+
+.admin-modal-1920 > div:nth-child(2) button:hover {
+  color: #ffffff !important;
+}
+
+.admin-modal-1920 > div:nth-child(2) button.border-blue-500 {
+  color: #ffffff !important;
+  background-color: #2563eb !important;
+  border-bottom: 3px solid #60a5fa !important;
+  font-weight: 900 !important;
+  border-radius: 0.5rem 0.5rem 0 0 !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Masterpiece Input Labels & Form Body inside Admin Modal */
+.admin-modal-1920 h4 {
+  color: #60a5fa !important;
+  font-weight: 900 !important;
+}
+
+body.light-mode .admin-modal-1920 h4 {
+  color: #0f172a !important;
+  font-weight: 900 !important;
+  border-bottom-color: #cbd5e1 !important;
 }
 
 .admin-modal-1920 label {
-  color: #60a5fa !important;
+  color: #93c5fd !important;
   font-weight: 800 !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
 }
 
 body.light-mode .admin-modal-1920 label {
   color: #1e40af !important;
   font-weight: 800 !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
 }
 
 .admin-modal-1920 input,
@@ -378,4 +489,5 @@ body.light-mode .admin-modal-1920 select {
   color: #0f172a !important;
   border: 1.5px solid #93c5fd !important;
   font-weight: 700 !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03) !important;
 }
