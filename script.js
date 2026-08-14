@@ -254,9 +254,73 @@ let currentLoggedInAdmin = null;
 
 // Initialize
 document.addEventListener("DOMContentLoaded", () => {
+  initThemeMode();
+  initDeviceMode();
   loadData();
   applyLanguage(currentLang);
   checkAuthSession();
+});
+
+// Theme Mode Engine (Light / Dark Mode)
+let currentThemeMode = localStorage.getItem("theme_31_mode") || "dark";
+
+function initThemeMode() {
+  applyThemeMode(currentThemeMode);
+}
+
+function toggleThemeMode() {
+  currentThemeMode = currentThemeMode === "dark" ? "light" : "dark";
+  localStorage.setItem("theme_31_mode", currentThemeMode);
+  applyThemeMode(currentThemeMode);
+}
+
+function applyThemeMode(mode) {
+  const iconEl = document.getElementById("theme-btn-icon");
+  const textEl = document.getElementById("theme-btn-text");
+  if (mode === "light") {
+    document.body.classList.add("light-mode");
+    if (iconEl) iconEl.innerText = "☀️";
+    if (textEl) textEl.innerText = "YORUG'";
+  } else {
+    document.body.classList.remove("light-mode");
+    if (iconEl) iconEl.innerText = "🌙";
+    if (textEl) textEl.innerText = "QORONG'U";
+  }
+}
+
+// Device View Mode Engine (Telefon & Kompyuter Rejimi)
+let currentDeviceMode = localStorage.getItem("device_31_mode") || (window.innerWidth < 768 ? "mobile" : "desktop");
+
+function initDeviceMode() {
+  applyDeviceMode(currentDeviceMode);
+}
+
+function toggleDeviceMode() {
+  currentDeviceMode = currentDeviceMode === "desktop" ? "mobile" : "desktop";
+  localStorage.setItem("device_31_mode", currentDeviceMode);
+  applyDeviceMode(currentDeviceMode);
+}
+
+function applyDeviceMode(mode) {
+  const iconEl = document.getElementById("device-btn-icon");
+  const textEl = document.getElementById("device-btn-text");
+  if (mode === "mobile") {
+    document.body.classList.add("device-mobile-mode");
+    if (iconEl) iconEl.innerText = "📱";
+    if (textEl) textEl.innerText = "Telefon";
+  } else {
+    document.body.classList.remove("device-mobile-mode");
+    if (iconEl) iconEl.innerText = "💻";
+    if (textEl) textEl.innerText = "Kompyuter";
+  }
+}
+
+// Window Resize Auto Detection
+window.addEventListener("resize", () => {
+  if (!localStorage.getItem("device_31_mode")) {
+    currentDeviceMode = window.innerWidth < 768 ? "mobile" : "desktop";
+    applyDeviceMode(currentDeviceMode);
+  }
 });
 
 // Globe Language Switcher Popover Handlers
@@ -519,7 +583,7 @@ function renderAllSections() {
     galleryGrid.innerHTML = `<div class="col-span-full text-center py-8 text-slate-400 text-sm">Hozircha galereya kiritilmagan</div>`;
   } else {
     galleryGrid.innerHTML = appState.gallery.map(g => `
-      <div class="glass-card overflow-hidden h-52 relative group cursor-pointer">
+      <div class="glass-card overflow-hidden h-52 relative group cursor-pointer" onclick="openImageLightbox('${g.url}', '${(g.title||'').replace(/'/g, "\\'")}')">
         <img src="${g.url}" alt="${g.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
         <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 text-center">
           <span class="text-xs font-bold text-white">${g.title}</span>
@@ -723,7 +787,7 @@ function createImageUploadWidgetHTML(existingImgUrl = "") {
         <label class="block text-[10px] font-semibold text-slate-400 mb-1">Yoki rasm havolasini (URL) kiriting:</label>
         <input type="text" id="crud-image-url-input" class="input-dark" value="${existingImgUrl}" placeholder="https://..." oninput="updateImagePreview(this.value)" />
       </div>
-      <img id="crud-image-preview" src="${existingImgUrl || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'}" class="image-preview-thumb" alt="Preview" />
+      <img id="crud-image-preview" src="${existingImgUrl || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'}" class="image-preview-thumb cursor-pointer hover:opacity-90 transition-opacity rounded-xl border border-blue-500/40 mt-2" alt="Preview" onclick="openImageLightbox(this.src, 'Rasm Ko\'rinishi')" title="To'liq o'lchamda ko'rish uchun bosing" />
     </div>
   `;
 }
@@ -756,20 +820,22 @@ function renderAdminTeachersTab() {
     return;
   }
   container.innerHTML = appState.teachers.map(t => `
-    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
+    <div class="bg-slate-950/70 backdrop-blur-md p-4 rounded-xl border border-slate-800/80 space-y-3 flex flex-col justify-between shadow-lg hover:border-blue-500/50 transition-all">
       <div class="space-y-2">
-        <div class="h-64 w-full overflow-hidden rounded-xl border border-slate-800 relative bg-slate-900 group cursor-pointer" onclick="openImageLightbox('${t.photo}')" title="To'liq rasm ko'rish uchun bosing">
+        <div class="h-64 w-full overflow-hidden rounded-xl border border-slate-800 relative bg-slate-900 group cursor-pointer" onclick="openImageLightbox('${t.photo}', '${(t.name||'').replace(/'/g, "\\'")}')" title="To'liq rasm ko'rish uchun bosing">
           <img src="${t.photo}" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300" />
-          <span class="absolute top-2 right-2 bg-slate-950/80 backdrop-blur-md text-[10px] text-blue-300 font-bold px-2 py-0.5 rounded-md border border-slate-800">🔍 To'liq rasm</span>
+          <button type="button" onclick="event.stopPropagation(); openImageLightbox('${t.photo}', '${(t.name||'').replace(/'/g, "\\'")}')" class="absolute top-2 right-2 bg-blue-600/90 hover:bg-blue-500 backdrop-blur-md text-[10px] text-white font-extrabold px-2.5 py-1 rounded-lg border border-blue-400/40 shadow-lg">
+            🔍 To'liq rasm
+          </button>
         </div>
         <h5 class="font-bold text-white text-sm pt-1">${t.name}</h5>
         <p class="text-xs text-blue-400 font-semibold">${t.role} (${t.subject})</p>
       </div>
-      <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-900">
-        <button onclick="openEditTeacherModal('${t.id}')" class="bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center">
+      <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80">
+        <button onclick="openEditTeacherModal('${t.id}')" class="bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center transition-all">
           ✏️ TAHRIRLASH
         </button>
-        <button onclick="deleteTeacher('${t.id}')" class="bg-red-600/30 hover:bg-red-600 text-red-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center">
+        <button onclick="deleteTeacher('${t.id}')" class="bg-red-600/30 hover:bg-red-600 text-red-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center transition-all">
           🗑️ O'CHIRISH
         </button>
       </div>
@@ -856,20 +922,22 @@ function renderAdminNewsTab() {
     return;
   }
   container.innerHTML = appState.news.map(n => `
-    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
+    <div class="bg-slate-950/70 backdrop-blur-md p-4 rounded-xl border border-slate-800/80 space-y-3 flex flex-col justify-between shadow-lg hover:border-blue-500/50 transition-all">
       <div class="space-y-2">
-        <div class="h-48 w-full overflow-hidden rounded-xl border border-slate-800 relative bg-slate-900 group cursor-pointer" onclick="openImageLightbox('${n.image}')" title="To'liq rasm ko'rish uchun bosing">
+        <div class="h-48 w-full overflow-hidden rounded-xl border border-slate-800 relative bg-slate-900 group cursor-pointer" onclick="openImageLightbox('${n.image}', '${(n.title||'').replace(/'/g, "\\'")}')" title="To'liq rasm ko'rish uchun bosing">
           <img src="${n.image}" class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300" />
-          <span class="absolute top-2 right-2 bg-slate-950/80 backdrop-blur-md text-[10px] text-blue-300 font-bold px-2 py-0.5 rounded-md border border-slate-800">🔍 To'liq rasm</span>
+          <button type="button" onclick="event.stopPropagation(); openImageLightbox('${n.image}', '${(n.title||'').replace(/'/g, "\\'")}')" class="absolute top-2 right-2 bg-blue-600/90 hover:bg-blue-500 backdrop-blur-md text-[10px] text-white font-extrabold px-2.5 py-1 rounded-lg border border-blue-400/40 shadow-lg">
+            🔍 To'liq rasm
+          </button>
         </div>
         <span class="text-[10px] text-blue-400 font-bold uppercase block pt-1">${n.date} | ${n.category}</span>
         <h5 class="font-bold text-white text-sm line-clamp-2">${n.title}</h5>
       </div>
-      <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-900">
-        <button onclick="openEditNewsModal('${n.id}')" class="bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center">
+      <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80">
+        <button onclick="openEditNewsModal('${n.id}')" class="bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center transition-all">
           ✏️ TAHRIRLASH
         </button>
-        <button onclick="deleteNews('${n.id}')" class="bg-red-600/30 hover:bg-red-600 text-red-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center">
+        <button onclick="deleteNews('${n.id}')" class="bg-red-600/30 hover:bg-red-600 text-red-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center transition-all">
           🗑️ O'CHIRISH
         </button>
       </div>
@@ -965,17 +1033,19 @@ function renderAdminGalleryTab() {
     return;
   }
   container.innerHTML = appState.gallery.map(g => `
-    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-2 flex flex-col justify-between">
-      <div class="h-44 w-full overflow-hidden rounded-xl border border-slate-800 relative bg-slate-900 group cursor-pointer" onclick="openImageLightbox('${g.url}')" title="To'liq rasm ko'rish uchun bosing">
-        <img src="${g.url}" class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300" />
-        <span class="absolute top-2 right-2 bg-slate-950/80 backdrop-blur-md text-[10px] text-blue-300 font-bold px-2 py-0.5 rounded-md border border-slate-800">🔍 To'liq rasm</span>
+    <div class="bg-slate-950/70 backdrop-blur-md p-3 rounded-xl border border-slate-800/80 space-y-2 flex flex-col justify-between shadow-lg hover:border-blue-500/50 transition-all">
+      <div class="h-44 w-full overflow-hidden rounded-xl border border-slate-800 relative bg-slate-900 group cursor-pointer" onclick="openImageLightbox('${g.url}', '${(g.title||'').replace(/'/g, "\\'")}')" title="To'liq rasm ko'rish uchun bosing">
+        <img src="${g.url}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+        <button type="button" onclick="event.stopPropagation(); openImageLightbox('${g.url}', '${(g.title||'').replace(/'/g, "\\'")}')" class="absolute top-2 right-2 bg-blue-600/90 hover:bg-blue-500 backdrop-blur-md text-[10px] text-white font-extrabold px-2.5 py-1 rounded-lg border border-blue-400/40 shadow-lg">
+          🔍 To'liq rasm
+        </button>
       </div>
       <p class="text-xs text-white truncate font-semibold pt-1">${g.title}</p>
-      <div class="grid grid-cols-2 gap-1 pt-1 border-t border-slate-900">
-        <button onclick="openEditGalleryModal('${g.id}')" class="bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white px-2 py-1 rounded text-[10px] font-bold text-center">
+      <div class="grid grid-cols-2 gap-1 pt-1 border-t border-slate-800/80">
+        <button onclick="openEditGalleryModal('${g.id}')" class="bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white px-2 py-1.5 rounded-lg text-[10px] font-bold text-center transition-all">
           ✏️ TAHRIRLASH
         </button>
-        <button onclick="deleteGalleryItem('${g.id}')" class="bg-red-600/30 hover:bg-red-600 text-red-300 hover:text-white px-2 py-1 rounded text-[10px] font-bold text-center">
+        <button onclick="deleteGalleryItem('${g.id}')" class="bg-red-600/30 hover:bg-red-600 text-red-300 hover:text-white px-2 py-1.5 rounded-lg text-[10px] font-bold text-center transition-all">
           🗑️ O'CHIRISH
         </button>
       </div>
@@ -1293,12 +1363,28 @@ function toggleMobileMenu() {
 }
 
 // Lightbox Full Image Viewer
-function openImageLightbox(src) {
+function openImageLightbox(src, title = "") {
   if (!src) return;
   document.getElementById("lightbox-img").src = src;
-  document.getElementById("image-lightbox-modal").classList.remove("hidden");
+  const tEl = document.getElementById("lightbox-title");
+  if (tEl) {
+    tEl.innerText = title || "";
+    if (title) tEl.classList.remove("hidden");
+    else tEl.classList.add("hidden");
+  }
+  const modal = document.getElementById("image-lightbox-modal");
+  if (modal) modal.classList.remove("hidden");
 }
 
 function closeImageLightbox() {
-  document.getElementById("image-lightbox-modal").classList.add("hidden");
+  const modal = document.getElementById("image-lightbox-modal");
+  if (modal) modal.classList.add("hidden");
 }
+
+// Global Keyboard Shortcut: ESC to close any modal / lightbox
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeImageLightbox();
+    closeCrudModal();
+  }
+});
