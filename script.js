@@ -275,13 +275,13 @@ function toggleThemeMode() {
 }
 
 function applyThemeMode(mode) {
-  const iconEl = document.getElementById("theme-btn-icon");
+  const icons = document.querySelectorAll(".theme-btn-icon-el, #theme-btn-icon");
   if (mode === "light") {
     document.body.classList.add("light-mode");
-    if (iconEl) iconEl.innerText = "☀️";
+    icons.forEach(el => el.innerText = "☀️");
   } else {
     document.body.classList.remove("light-mode");
-    if (iconEl) iconEl.innerText = "🌙";
+    icons.forEach(el => el.innerText = "🌙");
   }
 }
 
@@ -299,13 +299,13 @@ function toggleDeviceMode() {
 }
 
 function applyDeviceMode(mode) {
-  const iconEl = document.getElementById("device-btn-icon");
+  const icons = document.querySelectorAll(".device-btn-icon-el, #device-btn-icon");
   if (mode === "mobile") {
     document.body.classList.add("device-mobile-mode");
-    if (iconEl) iconEl.innerText = "📱";
+    icons.forEach(el => el.innerText = "📱");
   } else {
     document.body.classList.remove("device-mobile-mode");
-    if (iconEl) iconEl.innerText = "💻";
+    icons.forEach(el => el.innerText = "💻");
   }
 }
 
@@ -320,14 +320,14 @@ window.addEventListener("resize", () => {
 // Globe Language Switcher Popover Handlers
 function toggleLangDropdown(e) {
   if (e) e.stopPropagation();
-  const menu = document.getElementById("lang-dropdown-menu");
-  if (menu) menu.classList.toggle("hidden");
+  const menus = document.querySelectorAll(".lang-dropdown-menu-el, #lang-dropdown-menu");
+  menus.forEach(menu => menu.classList.toggle("hidden"));
 }
 
 function selectLangFromDropdown(lang) {
   setLanguage(lang);
-  const menu = document.getElementById("lang-dropdown-menu");
-  if (menu) menu.classList.add("hidden");
+  const menus = document.querySelectorAll(".lang-dropdown-menu-el, #lang-dropdown-menu");
+  menus.forEach(menu => menu.classList.add("hidden"));
 }
 
 // Close dropdown on click outside
@@ -344,8 +344,8 @@ window.addEventListener("click", (e) => {
 // Language Switcher Engine
 function setLanguage(lang) {
   currentLang = lang;
-  const codeEl = document.getElementById("current-lang-code");
-  if (codeEl) codeEl.innerText = lang.toUpperCase();
+  const codeEls = document.querySelectorAll(".current-lang-code-el, #current-lang-code");
+  codeEls.forEach(el => el.innerText = lang.toUpperCase());
   applyLanguage(lang);
 }
 
