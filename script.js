@@ -187,7 +187,7 @@ let appState = {
     phone: "+998 (71) 234-31-31",
     email: "info@31-maktab.uz",
     hours: "Dushanba - Shanba: 08:00 - 18:00",
-    mapUrl: "https://yandex.ru/map-widget/v1/org/31_maktab/113406840535/?ll=69.634573%2C41.310956&z=17.2"
+    mapUrl: "https://yandex.ru/map-widget/v1/?ll=69.635308%2C41.310485&z=17.5&pt=69.635308%2C41.310485%2Cpm2rdm"
   },
   teachers: [
     {
