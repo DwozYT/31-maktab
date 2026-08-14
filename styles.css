@@ -529,21 +529,74 @@ body.light-mode .admin-modal-1920 label {
   letter-spacing: 0.05em !important;
 }
 
-.admin-modal-1920 input,
-.admin-modal-1920 textarea,
-.admin-modal-1920 select {
-  background-color: rgba(15, 23, 42, 0.95) !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(59, 130, 246, 0.5) !important;
+/* Image Dropzone Box Styling */
+.image-dropzone {
+  background: rgba(15, 23, 42, 0.7) !important;
+  border: 2px dashed rgba(59, 130, 246, 0.5) !important;
+  border-radius: 0.85rem !important;
+  padding: 1.5rem !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.image-dropzone:hover {
+  background: rgba(30, 41, 59, 0.9) !important;
+  border-color: #3b82f6 !important;
+}
+
+/* Light Mode Image Dropzone & CRUD Modal Masterpiece Overrides */
+body.light-mode .image-dropzone {
+  background: #f0f7ff !important;
+  border: 2px dashed #3b82f6 !important;
+  color: #1e40af !important;
+}
+
+body.light-mode .image-dropzone:hover {
+  background: #e0f2fe !important;
+  border-color: #2563eb !important;
+}
+
+body.light-mode .image-dropzone span.text-slate-400 {
+  color: #475569 !important;
   font-weight: 600 !important;
 }
 
-body.light-mode .admin-modal-1920 input,
-body.light-mode .admin-modal-1920 textarea,
-body.light-mode .admin-modal-1920 select {
-  background-color: #ffffff !important;
+body.light-mode #crud-modal {
+  background: rgba(220, 235, 255, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+body.light-mode #crud-modal > div {
+  background: #ffffff !important;
+  border: 2px solid #93c5fd !important;
+  box-shadow: 0 25px 80px rgba(37, 99, 235, 0.25) !important;
   color: #0f172a !important;
-  border: 1.5px solid #93c5fd !important;
+}
+
+body.light-mode #crud-modal h3 {
+  color: #0f172a !important;
+  font-weight: 900 !important;
+}
+
+body.light-mode #crud-modal label {
+  color: #1e40af !important;
+  font-weight: 800 !important;
+}
+
+body.light-mode #crud-modal button[onclick="closeCrudModal()"] {
+  color: #64748b !important;
+}
+
+body.light-mode #crud-modal button[onclick="closeCrudModal()"]:hover {
+  color: #0f172a !important;
+}
+
+/* Contact Info Text Visibility in Light Mode */
+body.light-mode #contact-address-text,
+body.light-mode #contact-phone-text,
+body.light-mode #contact-email-text,
+body.light-mode #contact-hours-text {
+  color: #0f172a !important;
   font-weight: 700 !important;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03) !important;
 }
