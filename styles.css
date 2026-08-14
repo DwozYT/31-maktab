@@ -242,69 +242,104 @@ body::before {
   box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
 }
 
-/* Light Mode Theme Overrides */
+/* Enhanced Light Mode Theme Overrides */
 body.light-mode {
-  background-color: #eef5ff;
+  background-color: #eef6ff;
   color: #0f172a;
 }
 
 body.light-mode::before {
-  background-image: linear-gradient(180deg, rgba(238, 245, 255, 0.86) 0%, rgba(220, 235, 255, 0.78) 50%, rgba(238, 245, 255, 0.92) 100%), url('/images/school_bg.png');
-  filter: blur(8px) brightness(1.02) saturate(1.1);
+  background-image: linear-gradient(180deg, rgba(238, 245, 255, 0.88) 0%, rgba(220, 235, 255, 0.80) 50%, rgba(238, 245, 255, 0.92) 100%), url('/images/school_bg.png');
+  filter: blur(8px) brightness(1.02) saturate(1.15);
 }
 
 body.light-mode .glass-nav {
-  background: rgba(255, 255, 255, 0.90);
-  border-bottom: 1px solid rgba(59, 130, 246, 0.25);
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(147, 197, 253, 0.5);
+  box-shadow: 0 4px 25px rgba(37, 99, 235, 0.08);
 }
 
-body.light-mode .glass-card {
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(147, 197, 253, 0.6);
-  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
+body.light-mode .glass-card,
+body.light-mode .hero-frame {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(147, 197, 253, 0.7) !important;
+  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.08) !important;
 }
 
 body.light-mode .glass-card:hover {
-  background: #ffffff;
-  border-color: #3b82f6;
-  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.16);
+  background: #ffffff !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.16) !important;
 }
 
 body.light-mode .text-white {
   color: #0f172a !important;
 }
 
-body.light-mode .text-slate-300, body.light-mode .text-slate-400 {
+body.light-mode .text-slate-300, 
+body.light-mode .text-slate-400 {
   color: #334155 !important;
 }
 
-body.light-mode .bg-slate-950, body.light-mode .bg-slate-900 {
-  background-color: rgba(241, 245, 249, 0.92) !important;
+body.light-mode .bg-slate-950, 
+body.light-mode .bg-slate-900,
+body.light-mode .bg-slate-950\/90,
+body.light-mode .bg-slate-950\/80,
+body.light-mode .bg-slate-950\/70,
+body.light-mode .bg-slate-950\/60,
+body.light-mode .bg-slate-900\/60,
+body.light-mode .bg-slate-900\/95 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
   color: #0f172a !important;
 }
 
-body.light-mode .border-slate-800 {
-  border-color: rgba(203, 213, 225, 0.8) !important;
+body.light-mode .border-slate-800,
+body.light-mode .border-slate-900 {
+  border-color: rgba(191, 219, 254, 0.8) !important;
 }
 
-/* Device Mode Styles: Telefon Rejimi (Mobile View Mode) */
-body.device-mobile-mode {
-  max-width: 440px !important;
-  margin: 0 auto !important;
-  border-left: 4px solid #3b82f6 !important;
-  border-right: 4px solid #3b82f6 !important;
-  box-shadow: 0 0 50px rgba(37, 99, 235, 0.3) !important;
+body.light-mode .input-dark,
+body.light-mode input[type="text"],
+body.light-mode input[type="password"],
+body.light-mode textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #93c5fd !important;
 }
 
-body.device-mobile-mode header {
-  max-width: 440px !important;
-  margin: 0 auto !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
+body.light-mode .input-dark::placeholder,
+body.light-mode input::placeholder,
+body.light-mode textarea::placeholder {
+  color: #64748b !important;
 }
 
-body.device-mobile-mode h1 { font-size: 1.85rem !important; line-height: 2.25rem !important; }
-body.device-mobile-mode h2 { font-size: 1.5rem !important; }
-body.device-mobile-mode h3 { font-size: 1.2rem !important; }
-body.device-mobile-mode .grid { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
+body.light-mode footer {
+  background-color: rgba(235, 243, 255, 0.95) !important;
+  border-top: 1px solid rgba(147, 197, 253, 0.6) !important;
+  color: #334155 !important;
+}
+
+body.light-mode footer #footer-school-name {
+  color: #0f172a !important;
+}
+
+/* High Contrast Admin Panel Controls */
+.admin-modal-1920 label {
+  color: #93c5fd !important;
+  font-weight: 800 !important;
+}
+
+.admin-modal-1920 input,
+.admin-modal-1920 textarea,
+.admin-modal-1920 select {
+  background-color: rgba(15, 23, 42, 0.9) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(59, 130, 246, 0.5) !important;
+  font-weight: 600 !important;
+}
+
+.admin-modal-1920 input:focus,
+.admin-modal-1920 textarea:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3) !important;
+}

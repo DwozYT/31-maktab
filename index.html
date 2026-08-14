@@ -65,7 +65,7 @@
           <a href="#contact" id="nav-lbl-contact" class="hover:text-blue-400 transition-colors">Bog'lanish</a>
         </nav>
 
-        <!-- Right Side: Language Switcher, Light/Dark Mode, Device Mode & Admin Login Button -->
+        <!-- Right Side: Language Switcher, Single Theme Sticker & Admin Login Button -->
         <div class="flex items-center space-x-2 sm:space-x-3">
           
           <!-- Globe Language Switcher Dropdown Sticker -->
@@ -93,16 +93,10 @@
             </div>
           </div>
 
-          <!-- Light / Dark Mode Toggle Button -->
-          <button onclick="toggleThemeMode()" id="theme-toggle-btn" title="Yorug' / Qorong'u Rejim" class="inline-flex items-center space-x-1.5 bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-blue-500/40 text-slate-200 font-bold px-3 py-2 rounded-xl text-xs transition-all shadow-md">
+          <!-- Single Theme Switcher Sticker (🌙 | ☀️) -->
+          <button onclick="toggleThemeMode()" id="theme-toggle-btn" title="Yorug' / Qorong'u rejimini almashtirish" class="inline-flex items-center space-x-1.5 bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-blue-500/40 text-slate-200 font-extrabold px-3 py-2 rounded-xl text-xs transition-all shadow-md cursor-pointer">
             <span id="theme-btn-icon" class="text-sm">🌙</span>
-            <span id="theme-btn-text" class="hidden md:inline font-extrabold text-blue-400">QORONG'U</span>
-          </button>
-
-          <!-- Device Mode Toggle Button (Telefon / Kompyuter Rejimi) -->
-          <button onclick="toggleDeviceMode()" id="device-toggle-btn" title="Telefon / Kompyuter Rejimi" class="inline-flex items-center space-x-1.5 bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-blue-500/40 text-slate-200 font-bold px-3 py-2 rounded-xl text-xs transition-all shadow-md">
-            <span id="device-btn-icon" class="text-sm">💻</span>
-            <span id="device-btn-text" class="hidden md:inline font-extrabold text-cyan-400">Kompyuter</span>
+            <span id="theme-btn-text" class="font-extrabold text-blue-400 uppercase text-[11px] tracking-wider">QORONG'U</span>
           </button>
 
           <!-- Auth Button -->

@@ -832,10 +832,10 @@ function renderAdminTeachersTab() {
         <p class="text-xs text-blue-400 font-semibold">${t.role} (${t.subject})</p>
       </div>
       <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80">
-        <button onclick="openEditTeacherModal('${t.id}')" class="bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center transition-all">
+        <button onclick="openEditTeacherModal('${t.id}')" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-2 rounded-xl text-xs font-black text-center shadow-md neon-glow-blue transition-all">
           ✏️ TAHRIRLASH
         </button>
-        <button onclick="deleteTeacher('${t.id}')" class="bg-red-600/30 hover:bg-red-600 text-red-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center transition-all">
+        <button onclick="deleteTeacher('${t.id}')" class="bg-red-600 hover:bg-red-500 text-white px-3 py-2 rounded-xl text-xs font-black text-center shadow-md transition-all">
           🗑️ O'CHIRISH
         </button>
       </div>
@@ -934,10 +934,10 @@ function renderAdminNewsTab() {
         <h5 class="font-bold text-white text-sm line-clamp-2">${n.title}</h5>
       </div>
       <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80">
-        <button onclick="openEditNewsModal('${n.id}')" class="bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center transition-all">
+        <button onclick="openEditNewsModal('${n.id}')" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-2 rounded-xl text-xs font-black text-center shadow-md neon-glow-blue transition-all">
           ✏️ TAHRIRLASH
         </button>
-        <button onclick="deleteNews('${n.id}')" class="bg-red-600/30 hover:bg-red-600 text-red-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center transition-all">
+        <button onclick="deleteNews('${n.id}')" class="bg-red-600 hover:bg-red-500 text-white px-3 py-2 rounded-xl text-xs font-black text-center shadow-md transition-all">
           🗑️ O'CHIRISH
         </button>
       </div>
@@ -1042,10 +1042,10 @@ function renderAdminGalleryTab() {
       </div>
       <p class="text-xs text-white truncate font-semibold pt-1">${g.title}</p>
       <div class="grid grid-cols-2 gap-1 pt-1 border-t border-slate-800/80">
-        <button onclick="openEditGalleryModal('${g.id}')" class="bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white px-2 py-1.5 rounded-lg text-[10px] font-bold text-center transition-all">
+        <button onclick="openEditGalleryModal('${g.id}')" class="bg-blue-600 hover:bg-blue-500 text-white px-2 py-1.5 rounded-lg text-[10px] font-black text-center shadow-md transition-all">
           ✏️ TAHRIRLASH
         </button>
-        <button onclick="deleteGalleryItem('${g.id}')" class="bg-red-600/30 hover:bg-red-600 text-red-300 hover:text-white px-2 py-1.5 rounded-lg text-[10px] font-bold text-center transition-all">
+        <button onclick="deleteGalleryItem('${g.id}')" class="bg-red-600 hover:bg-red-500 text-white px-2 py-1.5 rounded-lg text-[10px] font-black text-center shadow-md transition-all">
           🗑️ O'CHIRISH
         </button>
       </div>
@@ -1120,10 +1120,10 @@ function renderAdminAchievementsTab() {
         <p class="text-xs text-slate-300 line-clamp-2">${a.desc || ''}</p>
       </div>
       <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-900">
-        <button onclick="openEditAchievementModal('${a.id}')" class="bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center">
+        <button onclick="openEditAchievementModal('${a.id}')" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-2 rounded-xl text-xs font-black text-center shadow-md neon-glow-blue">
           ✏️ TAHRIRLASH
         </button>
-        <button onclick="deleteAchievement('${a.id}')" class="bg-red-600/30 hover:bg-red-600 text-red-300 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold text-center">
+        <button onclick="deleteAchievement('${a.id}')" class="bg-red-600 hover:bg-red-500 text-white px-3 py-2 rounded-xl text-xs font-black text-center shadow-md">
           🗑️ O'CHIRISH
         </button>
       </div>
